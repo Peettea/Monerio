@@ -397,11 +397,6 @@ section {
   font-weight: 400;
 }
 
-.hero-visual {
-  flex: 0.8;
-  display: flex;
-  justify-content: flex-end;
-}
 
 /* ============================================
    WHY US — PREMIUM CARDS
@@ -548,25 +543,25 @@ section {
 }
 
 .bg-invest {
-  background-image: url('/img/monerio_service_invest_1773085960889.png');
+  background-image: url('/img/monerio_service_invest_1773085960889.webp');
   background-size: cover;
   background-position: center;
 }
 
 .bg-protect {
-  background-image: url('/img/monerio_service_protect_1773085946101.png');
+  background-image: url('/img/monerio_service_protect_1773085946101.webp');
   background-size: cover;
   background-position: center;
 }
 
 .bg-home {
-  background-image: url('/img/monerio_service_home_1773085932165.png');
+  background-image: url('/img/monerio_service_home_1773085932165.webp');
   background-size: cover;
   background-position: center;
 }
 
 .bg-retire {
-  background-image: url('/img/monerio_service_retire_1773085976754.png');
+  background-image: url('/img/monerio_service_retire_1773085976754.webp');
   background-size: cover;
   background-position: center;
 }
@@ -746,77 +741,6 @@ section {
   text-transform: uppercase;
 }
 
-/* ============================================
-   FAQ SECTION
-   ============================================ */
-.faq-section {
-  padding: var(--section-padding);
-}
-
-.faq-list {
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-.faq-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.75rem 0;
-  cursor: pointer;
-  gap: 2rem;
-}
-
-.faq-question h3 {
-  font-size: 1.2rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  letter-spacing: 0;
-}
-
-.faq-question:hover h3 {
-  color: var(--core-blue);
-}
-
-.faq-toggle {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  transition: var(--transition-base);
-  font-size: 1.4rem;
-  font-weight: 300;
-}
-
-.faq-item.active .faq-toggle {
-  transform: rotate(45deg);
-  color: var(--core-blue);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1), padding 0.5s ease;
-  padding: 0;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 300px;
-  padding-bottom: 1.75rem;
-}
-
-.faq-answer p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--text-muted);
-}
 
 /* ============================================
    BLOG SECTION
@@ -1126,7 +1050,7 @@ section {
 }
 
 .footer-compliance p {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.45);
   font-size: 0.82rem;
   margin-bottom: 0.75rem;
   line-height: 1.6;
@@ -1139,7 +1063,7 @@ section {
 }
 
 .footer-bottom a {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.78rem;
   margin-right: 20px;
 }
@@ -1216,11 +1140,7 @@ section {
     font-size: clamp(2.2rem, 7vw, 3rem);
   }
 
-  .hero-visual {
-    display: none;
-  }
-
-  .grid-3,
+.grid-3,
   .grid-2 {
     grid-template-columns: 1fr;
   }

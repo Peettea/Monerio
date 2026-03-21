@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^7.3.1"
+    "sharp": "^0.34.5",
+    "vite": "^7.3.1",
+    "vite-plugin-sitemap": "^0.8.2"
   },
   "dependencies": {
     "@barba/core": "^2.10.3",

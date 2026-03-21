@@ -8,8 +8,8 @@ import { initServiceAnimations } from '../animations/service-blocks.js'
 import { initContactAnimations } from '../animations/contact.js'
 import { initFooterAnimation } from '../animations/footer.js'
 import { initCounters } from '../animations/counters.js'
-import { initHeroAnimations, initHeroParticles } from '../animations/hero.js'
-import { updateActiveNavLink } from '../animations/nav.js'
+import { initHeroAnimations, initHeroParticles, cleanupHeroParticles } from '../animations/hero.js'
+import { updateActiveNavLink, reinitNavScrollTriggers } from '../animations/nav.js'
 
 function initPageAnimations(namespace) {
   // Common animations for all pages
@@ -59,6 +59,8 @@ export function initBarba() {
         name: 'overlay-transition',
 
         async leave({ current }) {
+          window.__lenis?.stop()
+
           const overlay = document.getElementById('page-transition')
           if (overlay) {
             await gsap.to(overlay, {
@@ -86,6 +88,8 @@ export function initBarba() {
               ease: 'power3.inOut',
             })
           }
+
+          window.__lenis?.start()
         },
 
         async once() {
@@ -98,6 +102,7 @@ export function initBarba() {
         to: { namespace: ['article'] },
 
         async leave({ current }) {
+          window.__lenis?.stop()
           await gsap.to(current.container, { opacity: 0, duration: 0.3 })
         },
 
@@ -111,6 +116,8 @@ export function initBarba() {
             duration: 0.6,
             ease: 'power3.inOut',
           })
+
+          window.__lenis?.start()
         },
       },
     ],
@@ -118,6 +125,7 @@ export function initBarba() {
 
   // Hooks
   barba.hooks.before(() => {
+    cleanupHeroParticles()
     ScrollTrigger.getAll().forEach((st) => st.kill())
   })
 
@@ -125,6 +133,7 @@ export function initBarba() {
     const namespace = next.container.dataset.barbaNamespace
     initPageAnimations(namespace)
 
+    reinitNavScrollTriggers()
     ScrollTrigger.refresh()
     window.__lenis?.resize()
     updateActiveNavLink()

@@ -14,7 +14,7 @@ export function initFooterAnimation() {
       y: 0,
       duration: 0.6,
       ease: 'power2.out',
-      scrollTrigger: { trigger: footer, start: 'top 90%' },
+      scrollTrigger: { trigger: footer, start: 'top 90%', invalidateOnRefresh: true },
     }
   )
 }

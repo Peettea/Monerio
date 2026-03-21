@@ -1,7 +1,23 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import Sitemap from 'vite-plugin-sitemap'
 
 export default defineConfig({
+  plugins: [
+    Sitemap({
+      hostname: 'https://www.monerio.cz',
+      dynamicRoutes: [
+        '/',
+        '/sluzby',
+        '/o-nas',
+        '/blog',
+        '/kontakt',
+        '/pojisteni-majetku',
+        '/pruvodce-hypotekami',
+        '/investovani-pro-zacatecniky'
+      ]
+    })
+  ],
   build: {
     rollupOptions: {
       input: {

@@ -13,6 +13,7 @@ export function initCounters() {
       trigger: el,
       start: 'top 80%',
       once: true,
+      invalidateOnRefresh: true,
       onEnter: () => {
         gsap.to(obj, {
           val: target,

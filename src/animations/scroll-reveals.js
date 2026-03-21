@@ -20,6 +20,7 @@ export function initScrollReveals() {
           trigger: el,
           start: 'top 90%',
           toggleActions: 'play none none none',
+          invalidateOnRefresh: true,
         },
       }
     )
@@ -42,6 +43,7 @@ export function initScrollReveals() {
         scrollTrigger: {
           trigger: grid,
           start: 'top 85%',
+          invalidateOnRefresh: true,
         },
       }
     )

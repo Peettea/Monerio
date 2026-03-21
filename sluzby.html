@@ -8,6 +8,66 @@
     <title>Služby | Monerio</title>
     <meta name="description"
         content="Pojištění, hypotéky a úvěry, investice a penzijní spoření. Srozumitelné finanční poradenství od Monerio." />
+    <link rel="canonical" href="https://www.monerio.cz/sluzby" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Služby | Monerio" />
+    <meta property="og:description" content="Pojištění, hypotéky a úvěry, investice a penzijní spoření. Srozumitelné finanční poradenství od Monerio." />
+    <meta property="og:image" content="https://www.monerio.cz/logo.png" />
+    <meta property="og:url" content="https://www.monerio.cz/sluzby" />
+    <meta property="og:locale" content="cs_CZ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Služby | Monerio" />
+    <meta name="twitter:description" content="Pojištění, hypotéky a úvěry, investice a penzijní spoření. Srozumitelné finanční poradenství od Monerio." />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Správa rodinných financí Monerio",
+      "provider": {
+        "@type": "FinancialService",
+        "name": "Monerio"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Katalog služeb",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pojištění",
+              "description": "Životní i neživotní pojištění majetku a zdraví."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Úvěry a Hypotéky",
+              "description": "Financování bydlení, hypotéční úvěry a refinancování."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Investice",
+              "description": "Investiční poradenství, budování portfolia, ETF a prevence inflace."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Doplňkové penzijní spoření",
+              "description": "Zajištění na stáří pomocí dlouhodobého spoření se státní podporou."
+            }
+          }
+        ]
+      }
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -159,18 +219,35 @@
             </div>
             <div class="footer-compliance">
                 <p><strong>Legislativa (ČNB):</strong> Služby v oblastech pojištění, investic a úvěrů poskytuji jako
-                    vázaný zástupce zprostředkovatele FINVOX a.s., IČO: [IČO Finvox]. Jsem zapsán(-a) v <a
+                    vázaný zástupce zprostředkovatele FINVOX a.s., IČO: 03068102. Jsem zapsán(-a) v <a
                         href="https://apl.cnb.cz/apljerrsdad/JERRS.WEB10.VIZITKA?p_lang=cz" target="_blank"
                         style="color: rgba(255,255,255,0.5); text-decoration: underline;">registru ČNB</a>.</p>
+                <p>Veškeré texty a informace na tomto webu mají výhradně edukativní charakter a nepředstavují závazné
+                    investiční doporučení ani obchodní nabídku ve smyslu zákona.</p>
+                <p>V případě sporu máte právo obrátit se na <a href="https://finarbitr.cz/" target="_blank"
+                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">Finančního arbitra ČR</a>.</p>
             </div>
             <div class="footer-bottom">
                 <a href="/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
                 <a href="/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád</a>
-                <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: right; width: 100;">&copy; 2026
+                <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: right; width: 100%;">&copy; 2026
                     MONERIO</p>
             </div>
         </div>
     </footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="container cookie-inner">
+            <div class="cookie-text">
+                <p>Tento web používá cookies pro zajištění funkčnosti a analýzu návštěvnosti. Podrobnosti najdete v naší
+                    <a href="/gdpr-finvox.pdf" target="_blank">politice ochrany soukromí</a>.</p>
+            </div>
+            <div class="cookie-actions">
+                <button class="btn btn-outline btn-sm" id="cookie-reject">Odmítnout</button>
+                <button class="btn btn-primary btn-sm" id="cookie-accept">Přijmout vše</button>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
 </body>

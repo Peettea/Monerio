@@ -15,6 +15,7 @@ export function initTextAnimations() {
         scrollTrigger: {
           trigger: heading,
           start: 'top 85%',
+          invalidateOnRefresh: true,
         },
       }
     )
@@ -33,6 +34,7 @@ export function initTextAnimations() {
         scrollTrigger: {
           trigger: badge,
           start: 'top 90%',
+          invalidateOnRefresh: true,
         },
       }
     )

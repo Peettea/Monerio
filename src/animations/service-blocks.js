@@ -16,6 +16,7 @@ export function initServiceAnimations() {
           start: 'top bottom',
           end: 'bottom top',
           scrub: true,
+          invalidateOnRefresh: true,
         },
       })
     }
@@ -33,6 +34,7 @@ export function initServiceAnimations() {
           scrollTrigger: {
             trigger: content,
             start: 'top 80%',
+            invalidateOnRefresh: true,
           },
         }
       )

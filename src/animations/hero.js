@@ -65,7 +65,16 @@ export function initHeroAnimations() {
   }
 }
 
+export function cleanupHeroParticles() {
+  if (window.__heroParticleCleanup) {
+    window.__heroParticleCleanup()
+    window.__heroParticleCleanup = null
+  }
+}
+
 export function initHeroParticles() {
+  cleanupHeroParticles()
+
   const canvas = document.getElementById('particle-canvas')
   if (!canvas) return
 
@@ -150,11 +159,12 @@ export function initHeroParticles() {
     animationId = requestAnimationFrame(drawParticles)
   }
 
-  document.addEventListener('mousemove', (e) => {
+  const onMouseMove = (e) => {
     const rect = canvas.getBoundingClientRect()
     mouseX = e.clientX - rect.left
     mouseY = e.clientY - rect.top
-  })
+  }
+  document.addEventListener('mousemove', onMouseMove)
 
   const heroObserver = new IntersectionObserver(
     (entries) => {
@@ -177,11 +187,22 @@ export function initHeroParticles() {
   heroObserver.observe(canvas.parentElement)
 
   let resizeTimeout
-  window.addEventListener('resize', () => {
+  const onResize = () => {
     clearTimeout(resizeTimeout)
     resizeTimeout = setTimeout(() => {
       resizeCanvas()
       createParticles()
     }, 250)
-  })
+  }
+  window.addEventListener('resize', onResize)
+
+  window.__heroParticleCleanup = () => {
+    document.removeEventListener('mousemove', onMouseMove)
+    window.removeEventListener('resize', onResize)
+    heroObserver.disconnect()
+    if (animationId) {
+      cancelAnimationFrame(animationId)
+      animationId = null
+    }
+  }
 }

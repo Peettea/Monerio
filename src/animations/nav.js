@@ -5,6 +5,16 @@ export function initNav() {
   const navbar = document.querySelector('.navbar')
   if (!navbar) return
 
+  initNavScrollTriggers(navbar)
+
+  // Mobile menu
+  initMobileMenu()
+
+  // Update active link
+  updateActiveNavLink()
+}
+
+function initNavScrollTriggers(navbar) {
   let lastScrollY = 0
 
   // Hide on scroll down, show on scroll up
@@ -14,10 +24,8 @@ export function initNav() {
     onUpdate: (self) => {
       const currentScroll = self.scroll()
       if (currentScroll > 300 && currentScroll > lastScrollY) {
-        // Scrolling down
         gsap.to(navbar, { y: -100, duration: 0.3, ease: 'power2.in' })
       } else {
-        // Scrolling up or at top
         gsap.to(navbar, { y: 0, duration: 0.3, ease: 'power2.out' })
       }
       lastScrollY = currentScroll
@@ -36,12 +44,11 @@ export function initNav() {
       navbar.style.boxShadow = 'none'
     },
   })
+}
 
-  // Mobile menu
-  initMobileMenu()
-
-  // Update active link
-  updateActiveNavLink()
+export function reinitNavScrollTriggers() {
+  const navbar = document.querySelector('.navbar')
+  if (navbar) initNavScrollTriggers(navbar)
 }
 
 function initMobileMenu() {

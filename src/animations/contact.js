@@ -14,7 +14,7 @@ export function initContactAnimations() {
       y: 0,
       duration: 0.6,
       ease: 'power2.out',
-      scrollTrigger: { trigger: form, start: 'top 80%' },
+      scrollTrigger: { trigger: form, start: 'top 80%', invalidateOnRefresh: true },
     }
   )
 
@@ -24,7 +24,8 @@ export function initContactAnimations() {
 
 function initContactForm() {
   const contactForm = document.getElementById('contact-form')
-  if (!contactForm) return
+  if (!contactForm || contactForm.__submitBound) return
+  contactForm.__submitBound = true
 
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault()
