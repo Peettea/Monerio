@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | Monerio</title>
+    <meta name="description"
+        content="Srozumitelné články o financích. Pojištění, hypotéky, investice — žádný žargon, jen praktické informace od Monerio." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..500&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .blog-hero {
+            padding-top: 140px;
+            padding-bottom: 60px;
+            background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.03) 0%, rgba(11, 32, 70, 0.3) 40%, #060913 80%);
+        }
+
+        .blog-listing {
+            padding: 0 0 5rem;
+        }
+
+        .blog-listing .blog-grid {
+            gap: 2.5rem;
+        }
+
+        .blog-card-date {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+
+<body data-barba="wrapper">
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo-link"><img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo"></a>
+            <nav class="nav-links d-none-mobile">
+                <a href="/sluzby.html">Služby</a>
+                <a href="/o-nas.html">O nás</a>
+                <a href="/blog.html" class="active">Blog</a>
+                <a href="/kontakt.html">Kontakt</a>
+            </nav>
+            <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/sluzby.html" class="mobile-link">Služby</a>
+        <a href="/o-nas.html" class="mobile-link">O nás</a>
+        <a href="/blog.html" class="mobile-link">Blog</a>
+        <a href="/kontakt.html" class="mobile-link">Kontakt</a>
+    </div>
+
+    <div class="page-transition-overlay" id="page-transition"></div>
+
+    <main data-barba="container" data-barba-namespace="blog">
+
+    <!-- BLOG HERO -->
+    <section class="blog-hero">
+        <div class="container fade-in-up">
+            <span class="subtitle-badge">Ze světa financí</span>
+            <h1 style="font-size: 3.5rem; max-width: 700px;">Vzdělávejte se s námi</h1>
+            <p style="color: var(--text-muted); max-width: 600px; font-size: 1.15rem; margin-top: 1rem;">Srozumitelné
+                články o tom, co hýbe vašimi financemi. Žádný žargon, jen praktické informace.</p>
+        </div>
+    </section>
+
+    <!-- BLOG LISTING -->
+    <section class="blog-listing">
+        <div class="container">
+            <div class="blog-grid fade-in-up">
+                <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="/img/blog-pojisteni.png" alt="Pojištění majetku" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <span class="blog-card-tag">Pojištění</span>
+                        <time class="blog-card-date">10. března 2026</time>
+                        <h3>Pojištění majetku lidsky: Jak ochránit domov a nenaletět na chytáky ve smlouvě</h3>
+                        <p>Podpojištění, výluky, pojistka na blbost — co musíte vědět, aby pojišťovna opravdu zaplatila.
+                        </p>
+                        <a href="/pojisteni-majetku.html" class="blog-card-link">Číst článek →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="/img/blog-hypoteky.png" alt="Průvodce hypotékami" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <span class="blog-card-tag">Hypotéky &amp; Úvěry</span>
+                        <time class="blog-card-date">10. března 2026</time>
+                        <h3>Průvodce hypotékami: Jak na bydlení chytře a bez zbytečných chyb</h3>
+                        <p>Fixace, RPSN, refinancování, nájem vs. vlastní bydlení — kompletní průvodce pro rok 2026.</p>
+                        <a href="/pruvodce-hypotekami.html" class="blog-card-link">Číst článek →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="/img/blog-investice.png" alt="Investování pro začátečníky" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <span class="blog-card-tag">Investice</span>
+                        <time class="blog-card-date">10. března 2026</time>
+                        <h3>Průvodce investováním pro úplné začátečníky</h3>
+                        <p>Inflace, složené úročení, ETF, akcie, dluhopisy a hnutí FIRE — vše jednoduše vysvětlené.</p>
+                        <a href="/investovani-pro-zacatecniky.html" class="blog-card-link">Číst článek →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="contact-section" style="padding: 5rem 0;">
+        <div class="container text-center fade-in-up">
+            <h2 style="margin-bottom: 1.5rem;">Chcete poradit s financemi?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">Konzultace je zdarma a
+                nezávazná.</p>
+            <a href="/kontakt.html" class="btn btn-primary btn-lg">Domluvit konzultaci</a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
+                    <p style="font-size:0.9rem;">Architekt vašich financí v České republice.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="/sluzby.html">Služby</a></li>
+                        <li><a href="/o-nas.html">O nás</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-compliance">
+                <p><strong>Legislativa (ČNB):</strong> Služby v oblastech pojištění, investic a úvěrů poskytuji jako
+                    vázaný zástupce zprostředkovatele FINVOX a.s., IČO: [IČO Finvox].</p>
+            </div>
+            <div class="footer-bottom">
+                <a href="/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
+                <a href="/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád</a>
+                <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: right; width: 100;">&copy; 2026
+                    MONERIO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

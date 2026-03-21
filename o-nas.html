@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O nás | Monerio</title>
+    <meta name="description"
+        content="Poznejte Monerio — kdo jsme, jak pracujeme, a kdo za námi stojí. FINVOX a.s. a RENOMIA a.s. jako naše zázemí." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..500&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body data-barba="wrapper">
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo-link"><img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo"></a>
+            <nav class="nav-links d-none-mobile">
+                <a href="/sluzby.html">Služby</a>
+                <a href="/o-nas.html" class="active">O nás</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/kontakt.html">Kontakt</a>
+            </nav>
+            <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/sluzby.html" class="mobile-link">Služby</a>
+        <a href="/o-nas.html" class="mobile-link">O nás</a>
+        <a href="/blog.html" class="mobile-link">Blog</a>
+        <a href="/kontakt.html" class="mobile-link">Kontakt</a>
+    </div>
+
+    <div class="page-transition-overlay" id="page-transition"></div>
+
+    <main data-barba="container" data-barba-namespace="about">
+    <!-- ABOUT -->
+    <section id="o-mne" style="padding-top: 140px;">
+        <div class="container fade-in-up">
+            <div class="about-signature-wrapper">
+                <div class="grid-2" style="align-items: center;">
+                    <div class="about-image">
+                        <img src="/img/Silvi_1.png" alt="Architektka financí" loading="lazy"
+                            style="width:100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    </div>
+                    <div class="about-content">
+                        <span class="subtitle-badge">Vize</span>
+                        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Dobrý den, jmenuji se Silvie Žáčková a vítám vás v
+                            Monerio.
+                        </h2>
+                        <p class="lead">Věřím, že rodinné finance nemají být neproniknutelná šifra plná drobných písmen
+                            s hvězdičkou.</p>
+                        <p>Rozhodla jsem se pracovat s financemi jinak – srozumitelně, transparentně a s jediným
+                            cílem: abyste večer usínali s vědomím, že vaše peníze i domov jsou v absolutním bezpečí.</p>
+                        <p>Nejsem běžná prodejkyně produktů, jsem architektka vašich financí. Zasedneme spolu nad kávou,
+                            probereme vaše reálné životní cíle a já k nim navrhnu pevnou cestu. Odborně a lidsky.</p>
+                        <div class="signature mt-5">
+                            <img src="/logo-inverse.svg" alt="Monerio Signature" style="height: 30px; opacity: 0.3;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section id="zazemi" class="partners-section dark-surface">
+        <div class="container">
+            <div class="section-header center fade-in-up">
+                <span class="subtitle-badge">Zázemí</span>
+                <h2>Osobní přístup. Světové zázemí.</h2>
+                <p>Získáváte osobní péči jako u rodinného poradce — a zároveň sílu a podmínky, které může
+                    nabídnout jen mezinárodní skupina. Přesně tohle dělá Monerio výjimečným.</p>
+            </div>
+            <div class="partner-grid fade-in-up delay-2">
+                <div class="partner-card">
+                    <img src="/img/renomia.png" alt="RENOMIA" class="partner-logo" loading="lazy">
+                    <span class="partner-role">Největší pojišťovací makléř ve střední a východní Evropě</span>
+                    <p>RENOMIA je rodinná firma, která vyrostla v největšího pojišťovacího makléře ve střední
+                        a východní Evropě — a dnes je součástí mezinárodní skupiny Gallagher. Díky této síle
+                        dokážeme zajistit pojišťovací služby kdekoliv na světě a vyjednat podmínky, které
+                        byste jako jednotlivec nikdy nezískali.</p>
+                    <ul>
+                        <li>Pojišťovací služby kdekoliv na světě</li>
+                        <li>Bezkonkurenční podmínky díky vyjednávací síle</li>
+                        <li>Propojení rodinných i firemních financí</li>
+                        <li>Osobní přístup se silou mezinárodní skupiny</li>
+                    </ul>
+                </div>
+                <div class="partner-card">
+                    <img src="/img/finvox-logo.png" alt="FINVOX" class="partner-logo" loading="lazy">
+                    <span class="partner-role">Váš přímý partner</span>
+                    <p>Monerio působí jako vázaný zástupce společnosti FINVOX a.s. — 100% dceřiné společnosti
+                        RENOMIA. Díky tomu máte z jednoho místa přístup ke všem významným pojišťovnám
+                        a finančním institucím v České republice.</p>
+                    <ul>
+                        <li>Pojištění, úvěry, investice i penze na jednom místě</li>
+                        <li>Spolupráce se všemi klíčovými institucemi v ČR</li>
+                        <li>Kompletní servis pro rodinu i firmu</li>
+                        <li>Odborné a technologické zázemí celé skupiny</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="reference" class="dark-surface">
+        <div class="container">
+            <div class="section-header center fade-in-up">
+                <span class="subtitle-badge">Důvěra</span>
+                <h2>Slova těch, kteří s námi tvoří budoucnost</h2>
+            </div>
+            <div class="grid-2 mt-5 fade-in-up delay-2">
+                <div class="testimonial-luxury">
+                    <p class="quote-lux">"Měli jsme pojištění u tří různých pojišťoven a nikdo nám nikdy neřekl, že jsme
+                        podpojištění. Monerio vše sjednotilo, vyjednalo lepší podmínky a dnes máme jistotu, že je
+                        náš majetek opravdu chráněný. Profesionální a lidský přístup."
+                    </p>
+                    <div class="author-lux">
+                        <strong>Ing. David R.</strong>
+                        <span>Podnikatel</span>
+                    </div>
+                </div>
+                <div class="testimonial-luxury">
+                    <p class="quote-lux">"Při vyřizování hypotéky jsme si nevěděli rady s odhadem a banka dělala
+                        problémy. Monerio
+                        to vyřešilo za nás během pár telefonátů a navrch sjednotili naše staré půjčky. Nyní platíme o 4
+                        tisíce
+                        měsíčně méně."</p>
+                    <div class="author-lux">
+                        <strong>Marek a Lucie P.</strong>
+                        <span>Rodina &amp; Klienti pro financování</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="contact-section" style="padding: 5rem 0;">
+        <div class="container text-center fade-in-up">
+            <h2 style="margin-bottom: 1.5rem;">Chcete nás poznat osobně?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">Rádi se s vámi sejdeme u kafe a
+                probereme, jak vám můžeme pomoci.</p>
+            <a href="/kontakt.html" class="btn btn-primary btn-lg">Domluvit nezávaznou konzultaci</a>
+        </div>
+    </section>
+
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
+                    <p style="font-size:0.9rem;">Architekt vašich financí v České republice.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="/sluzby.html">Služby</a></li>
+                        <li><a href="/o-nas.html">O nás</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Pobočka</h4>
+                    <ul>
+                        <li><span style="color:var(--text-muted); font-size:0.9rem;">Heřmanická 1182/19<br />Praha, 182 00</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-compliance">
+                <p><strong>Legislativa (ČNB):</strong> Služby v oblastech pojištění, investic a úvěrů poskytuji jako
+                    vázaný zástupce zprostředkovatele FINVOX a.s., IČO: [IČO Finvox]. Jsem zapsán(-a) v <a
+                        href="https://apl.cnb.cz/apljerrsdad/JERRS.WEB10.VIZITKA?p_lang=cz" target="_blank"
+                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">registru ČNB</a>.</p>
+            </div>
+            <div class="footer-bottom">
+                <a href="/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
+                <a href="/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád</a>
+                <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: right; width: 100;">&copy; 2026
+                    MONERIO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

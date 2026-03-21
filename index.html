@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monerio | Exkluzivní správa rodinných financí</title>
+  <meta name="description"
+    content="Monerio — prémiová správa rodinných financí. Pojištění, hypotéky, investice a penzijní spoření. Srozumitelně, transparentně, bez složitého žargonu. Konzultace zdarma." />
+  <meta name="keywords"
+    content="finanční poradce, hypotéky, pojištění, investice, DPS, Monerio, FINVOX, rodinné finance" />
+  <meta name="author" content="Monerio" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Monerio | Exkluzivní správa rodinných financí" />
+  <meta property="og:description"
+    content="Pomůžeme vám uspořádat majetek i budoucnost. Žádný složitý bankovní žargon, jen srozumitelné finanční plány." />
+  <meta property="og:image" content="/logo.png" />
+  <meta property="og:url" content="https://www.monerio.cz" />
+  <meta property="og:locale" content="cs_CZ" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Monerio | Exkluzivní správa rodinných financí" />
+  <meta name="twitter:description" content="Prémiová správa rodinných financí. Konzultace zdarma." />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Monerio",
+    "description": "Prémiová správa rodinných financí — pojištění, hypotéky, investice a penzijní spoření.",
+    "url": "https://www.monerio.cz",
+    "telephone": "+420775172656",
+    "email": "info@monerio.cz",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Heřmanická 1182/19",
+      "addressLocality": "Praha",
+      "postalCode": "182 00",
+      "addressCountry": "CZ"
+    },
+    "areaServed": "CZ",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Fonts — preconnect + load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..500&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body data-barba="wrapper">
+  <!-- PAGE TRANSITION OVERLAY -->
+  <div class="page-transition-overlay" id="page-transition"></div>
+
+  <!-- PREMIUM LOADING SCREEN -->
+  <div class="splash-screen" id="splash-screen">
+    <img src="/logo-inverse.svg" alt="Monerio" class="splash-logo">
+    <div class="splash-progress">
+      <div class="splash-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-content fade-in-up">
+      <a href="/" class="logo-link">
+        <img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo">
+      </a>
+      <nav class="nav-links d-none-mobile">
+        <a href="/sluzby.html">Služby</a>
+        <a href="/o-nas.html">O nás</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </nav>
+      <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
+        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/sluzby.html" class="mobile-link">Služby</a>
+    <a href="/o-nas.html" class="mobile-link">O nás</a>
+    <a href="/blog.html" class="mobile-link">Blog</a>
+    <a href="/kontakt.html" class="mobile-link">Kontakt</a>
+    <a href="/kontakt.html" class="btn btn-primary mt-4" style="width: 100%;">Domluvit konzultaci</a>
+  </div>
+
+  <main data-barba="container" data-barba-namespace="home">
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="uvod"
+    style="background: radial-gradient(circle at 70% 30%, rgba(0, 85, 164, 0.05) 0%, rgba(11, 32, 70, 0.4) 30%, #060913 80%);">
+    <canvas id="particle-canvas"></canvas>
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-content center-mode">
+      <div class="hero-text text-center fade-in-up">
+        <span class="subtitle-badge">Prémiová správa majetku</span>
+        <h1 style="font-size: 5.5rem;">Jasný směr pro vaše <br /><span class="text-gold">rodinné finance.</span></h1>
+        <p class="perex mx-auto">Pomůžeme vám uspořádat majetek i budoucnost tak, abyste měli klid. Žádný složitý
+          bankovní
+          žargon, jen srozumitelné finanční plány, které vám šetří čas i peníze. S profesionálním zázemím a jistotou
+          silného partnera.</p>
+        <div class="hero-actions justify-center">
+          <a href="/kontakt.html" class="btn btn-primary btn-lg">Domluvit nezávaznou konzultaci</a>
+          <a href="/sluzby.html" class="btn btn-outline btn-lg d-none-mobile">Prohlédnout služby</a>
+        </div>
+        <p class="social-proof-micro text-center">Více než 250 spokojených rodin | Odborné poradenství pod záštitou
+          FINVOX a.s.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="pro-vas" class="dark-surface">
+    <div class="container">
+      <div class="section-header center fade-in-up">
+        <span class="subtitle-badge">Vaše výhody</span>
+        <h2>Proč si vybrat Monerio?</h2>
+      </div>
+      <div class="grid-3 fade-in-up delay-2">
+        <div class="premium-card">
+          <svg class="icon-luxury" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" fill="none">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <h3>Ušetříte čas</h3>
+          <p>Kalkulace řešíme za vás. Zanalyzujeme trh, porovnáme desítky bank i pojišťoven a přineseme vám na stůl už
+            jen hotová řešení.</p>
+        </div>
+        <div class="premium-card">
+          <svg class="icon-luxury" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" fill="none">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+          <h3>Ušetříte peníze</h3>
+          <p>Díky síle naší sítě vám dokážeme sjednat neveřejné sazby a lepší podmínky, na které byste jako jednotlivec
+            u banky nedosáhli.</p>
+        </div>
+        <div class="premium-card">
+          <svg class="icon-luxury" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" fill="none">
+            <path
+              d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+            </path>
+          </svg>
+          <h3>Smlouvami to nekončí</h3>
+          <p>Zakládáme si na dlouhodobém servisu. Vaše portfolio pravidelně revidujeme a hlídáme úrokové i životní změny
+            za vás.</p>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 3rem;">
+        <a href="/sluzby.html" class="btn btn-outline">Zobrazit všechny služby →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG PREVIEW -->
+  <section id="blog" class="blog-section dark-surface">
+    <div class="container">
+      <div class="section-header center fade-in-up">
+        <span class="subtitle-badge">Ze světa financí</span>
+        <h2>Vzdělávejte se s námi</h2>
+        <p>Srozumitelné články o tom, co hýbe vašimi financemi. Žádný žargon, jen praktické informace.</p>
+      </div>
+      <div class="blog-grid fade-in-up delay-2">
+        <div class="blog-card">
+          <div class="blog-card-image">
+            <img src="/img/blog-pojisteni.png" alt="Pojištění majetku" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-card-tag">Pojištění</span>
+            <time class="blog-card-date">10. března 2026</time>
+            <h3>Pojištění majetku lidsky: Jak ochránit domov a nenaletět na chytáky ve smlouvě</h3>
+            <p>Podpojištění, výluky, pojistka na blbost — co musíte vědět, aby pojišťovna opravdu zaplatila.</p>
+            <a href="/pojisteni-majetku.html" class="blog-card-link">Číst článek →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-image">
+            <img src="/img/blog-hypoteky.png" alt="Průvodce hypotékami" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-card-tag">Hypotéky &amp; Úvěry</span>
+            <time class="blog-card-date">10. března 2026</time>
+            <h3>Průvodce hypotékami: Jak na bydlení chytře a bez zbytečných chyb</h3>
+            <p>Fixace, RPSN, refinancování, nájem vs. vlastní bydlení — kompletní průvodce pro rok 2026.</p>
+            <a href="/pruvodce-hypotekami.html" class="blog-card-link">Číst článek →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-image">
+            <img src="/img/blog-investice.png" alt="Investování pro začátečníky" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-card-tag">Investice</span>
+            <time class="blog-card-date">10. března 2026</time>
+            <h3>Průvodce investováním pro úplné začátečníky</h3>
+            <p>Inflace, složené úročení, ETF, akcie, dluhopisy a hnutí FIRE — vše jednoduše vysvětlené.</p>
+            <a href="/investovani-pro-zacatecniky.html" class="blog-card-link">Číst článek →</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 2rem;">
+        <a href="/blog.html" class="btn btn-outline">Všechny články →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPACT CTA -->
+  <section class="contact-section" style="padding: 5rem 0;">
+    <div class="container text-center fade-in-up">
+      <span class="subtitle-badge">Konzultace zdarma</span>
+      <h2 style="margin-bottom: 1.5rem;">Pojďme probrat vaše finance</h2>
+      <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">Zanechte nám kontakt a obratem se vám
+        ozveme. Bez závazku, srozumitelně a lidsky.</p>
+      <a href="/kontakt.html" class="btn btn-primary btn-lg">Domluvit nezávaznou konzultaci</a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container fade-in-up">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
+          <p style="font-size:0.9rem;">Architekt vašich financí v České republice.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigace</h4>
+          <ul>
+            <li><a href="/sluzby.html">Služby</a></li>
+            <li><a href="/o-nas.html">O nás</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Pobočka</h4>
+          <ul>
+            <li><span style="color:var(--text-muted); font-size:0.9rem;">Heřmanická 1182/19<br />Praha, 182 00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-compliance">
+        <p><strong>Legislativa (ČNB):</strong> Služby v oblastech pojištění, investic a úvěrů poskytuji jako vázaný
+          zástupce zprostředkovatele FINVOX a.s., IČO: [IČO Finvox]. Sám(-a) působím pod IČO: [IČO Poradce]. Jsem
+          zapsán(-a) v <a href="https://apl.cnb.cz/apljerrsdad/JERRS.WEB10.VIZITKA?p_lang=cz" target="_blank"
+            style="color: rgba(255,255,255,0.5); text-decoration: underline;">registru České národní banky</a>.</p>
+        <p>Veškeré texty a informace na tomto webu mají výhradně edukativní charakter a nepředstavují závazné investiční
+          doporučení ani obchodní nabídku ve smyslu zákona.</p>
+        <p>V případě sporu máte právo obrátit se na <a href="https://finarbitr.cz/" target="_blank"
+            style="color: rgba(255,255,255,0.5); text-decoration: underline;">Finančního arbitra ČR</a>.</p>
+      </div>
+
+      <div class="footer-bottom">
+        <a href="/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
+        <a href="/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád FINVOX a.s.</a>
+        <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: right; width: 100%;">&copy; 2026 MONERIO
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookie-banner">
+    <div class="container cookie-inner">
+      <div class="cookie-text">
+        <p>Tento web používá cookies pro zajištění funkčnosti a analýzu návštěvnosti. Podrobnosti najdete v naší <a
+            href="#">politice ochrany soukromí</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn btn-outline btn-sm" id="cookie-reject">Odmítnout</button>
+        <button class="btn btn-primary btn-sm" id="cookie-accept">Přijmout vše</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

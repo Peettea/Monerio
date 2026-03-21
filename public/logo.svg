@@ -1,0 +1,38 @@
+<svg width="350" height="90" viewBox="0 0 350 90" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&amp;display=swap');
+    .logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 52px;
+      letter-spacing: 0.02em;
+    }
+  </style>
+  <defs>
+    <!-- Base Icon Gradient -->
+    <linearGradient id="grad-icon" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0055A4" />
+      <stop offset="100%" stop-color="#0B2046" />
+    </linearGradient>
+    <!-- Highlight Chevron Gradient -->
+    <linearGradient id="grad-chevron" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00B4D8" />
+      <stop offset="100%" stop-color="#0055A4" />
+    </linearGradient>
+  </defs>
+
+  <!-- M Logo Mark -->
+  <g transform="translate(10, 15) scale(0.7)">
+    <!-- Base V -->
+    <path d="M 0 40 L 40 80 L 80 40 L 60 40 L 40 60 L 20 40 Z" fill="url(#grad-icon)" opacity="0.4" />
+    <!-- Progressive Growth Chevron -->
+    <path d="M 0 20 L 40 60 L 80 20 L 60 20 L 40 40 L 20 20 Z" fill="url(#grad-chevron)" opacity="0.8"/>
+    <!-- Left Stable Stem -->
+    <rect x="0" y="40" width="20" height="50" fill="url(#grad-icon)" />
+    <!-- Right Ascending Pillar (Growth) -->
+    <polygon points="60,0 80,-20 80,90 60,90" fill="url(#grad-icon)" />
+  </g>
+
+  <!-- Clean Wordmark (No extra text) -->
+  <text x="85" y="66" class="logo-text" fill="#0A0E1A">MONERIO</text>
+</svg>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt | Monerio</title>
+    <meta name="description"
+        content="Domluvte si nezávaznou konzultaci s Monerio — pojištění, hypotéky, investice a správa rodinných financí." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..500&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body data-barba="wrapper">
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo-link"><img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo"></a>
+            <nav class="nav-links d-none-mobile">
+                <a href="/sluzby.html">Služby</a>
+                <a href="/o-nas.html">O nás</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/kontakt.html" class="active">Kontakt</a>
+            </nav>
+            <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/sluzby.html" class="mobile-link">Služby</a>
+        <a href="/o-nas.html" class="mobile-link">O nás</a>
+        <a href="/blog.html" class="mobile-link">Blog</a>
+        <a href="/kontakt.html" class="mobile-link">Kontakt</a>
+    </div>
+
+    <div class="page-transition-overlay" id="page-transition"></div>
+
+    <main data-barba="container" data-barba-namespace="kontakt">
+
+    <!-- CONTACT -->
+    <section id="kontakt" class="contact-section" style="padding-top: 140px;">
+        <div class="container glass-form fade-in-up">
+            <div class="grid-2">
+                <div class="contact-text">
+                    <span class="subtitle-badge">Konzultace</span>
+                    <h2 style="font-size: 2.8rem; line-height: 1.1; margin-bottom: 1.5rem;">Pojďme probrat, jak vám
+                        můžeme ušetřit
+                        starosti</h2>
+                    <p style="margin-bottom:3rem;">Máte konkrétní dotaz, nebo si chcete jen nechat zkontrolovat staré
+                        smlouvy?
+                        Zanechte nám kontakt a obratem se vám ozveme.</p>
+
+                    <p style="font-size: 1.5rem; color: var(--text-main); font-weight: 300; margin-bottom: 0.5rem;">+420
+                        775 172
+                        656</p>
+                    <p style="font-size: 1.2rem; color: var(--accent-gold); font-weight: 300;">info@monerio.cz</p>
+
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.5rem;"><strong
+                                style="color: var(--text-main);">Adresa kanceláře</strong></p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Heřmanická 1182/19<br />Praha, 182 00</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-area">
+                    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label for="name">Vaše jméno</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefonní spojení</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Oblast zájmu</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected></option>
+                                <option value="hypoteka">Financování a hypotéky</option>
+                                <option value="investice">Investiční portfolio / DPS</option>
+                                <option value="revize">Ochrana rizik (Pojistky)</option>
+                                <option value="jine">Chci nezávazně probrat své možnosti</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Vaše zpráva (volitelné)</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
+                        </div>
+                        <div class="gdpr-group">
+                            <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
+                            <label for="gdpr-consent">Souhlasím se <a href="/gdpr-finvox.pdf" target="_blank">zpracováním osobních
+                                    údajů</a> za
+                                účelem kontaktování ohledně poptávaných finančních služeb. Souhlas mohu kdykoli
+                                odvolat.</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top:1rem;">Odeslat
+                            nezávaznou
+                            poptávku</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
+                    <p style="font-size:0.9rem;">Architekt vašich financí v České republice.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="/sluzby.html">Služby</a></li>
+                        <li><a href="/o-nas.html">O nás</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Pobočka</h4>
+                    <ul>
+                        <li><span style="color:var(--text-muted); font-size:0.9rem;">Heřmanická 1182/19<br />Praha, 182 00</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-compliance">
+                <p><strong>Legislativa (ČNB):</strong> Služby v oblastech pojištění, investic a úvěrů poskytuji jako
+                    vázaný zástupce zprostředkovatele FINVOX a.s., IČO: [IČO Finvox]. Jsem zapsán(-a) v <a
+                        href="https://apl.cnb.cz/apljerrsdad/JERRS.WEB10.VIZITKA?p_lang=cz" target="_blank"
+                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">registru ČNB</a>.</p>
+                <p>V případě sporu máte právo obrátit se na <a href="https://finarbitr.cz/" target="_blank"
+                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">Finančního arbitra ČR</a>.</p>
+            </div>
+            <div class="footer-bottom">
+                <a href="/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
+                <a href="/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád</a>
+                <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: right; width: 100;">&copy; 2026
+                    MONERIO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
