@@ -34,10 +34,11 @@ export function initHeroAnimations() {
 
   // Subtle hero content parallax on scroll
   const heroContent = hero.querySelector('.hero-content')
+  const isMobile = window.innerWidth < 768
   if (heroContent) {
     gsap.to(heroContent, {
-      y: -60,
-      opacity: 0.3,
+      y: isMobile ? -30 : -60,
+      opacity: isMobile ? 0.5 : 0.3,
       ease: 'none',
       scrollTrigger: {
         trigger: hero,
