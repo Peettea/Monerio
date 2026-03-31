@@ -14,7 +14,12 @@ export default defineConfig({
         '/kontakt',
         '/pojisteni-majetku',
         '/pruvodce-hypotekami',
-        '/investovani-pro-zacatecniky'
+        '/investovani-pro-zacatecniky',
+        '/kalkulacky',
+        '/kalkulacky-hypoteka',
+        '/kalkulacky-investice',
+        '/kalkulacky-inflace',
+        '/kalkulacky-penze'
       ]
     })
   ],
@@ -29,6 +34,11 @@ export default defineConfig({
         'pojisteni-majetku': resolve(__dirname, 'pojisteni-majetku.html'),
         'pruvodce-hypotekami': resolve(__dirname, 'pruvodce-hypotekami.html'),
         'investovani-pro-zacatecniky': resolve(__dirname, 'investovani-pro-zacatecniky.html'),
+        kalkulacky: resolve(__dirname, 'kalkulacky.html'),
+        'kalkulacky-hypoteka': resolve(__dirname, 'kalkulacky-hypoteka.html'),
+        'kalkulacky-investice': resolve(__dirname, 'kalkulacky-investice.html'),
+        'kalkulacky-inflace': resolve(__dirname, 'kalkulacky-inflace.html'),
+        'kalkulacky-penze': resolve(__dirname, 'kalkulacky-penze.html'),
       },
     },
   },

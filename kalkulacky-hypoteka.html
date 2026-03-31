@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hypoteční kalkulačka | Monerio</title>
+    <meta name="description"
+        content="Spočítejte si měsíční splátku hypotéky, celkový přeplatek a podívejte se na amortizační plán. Interaktivní hypoteční kalkulačka od Monerio." />
+    <link rel="canonical" href="https://www.monerio.cz/kalkulacky-hypoteka" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hypoteční kalkulačka | Monerio" />
+    <meta property="og:description" content="Spočítejte si měsíční splátku hypotéky a celkový přeplatek." />
+    <meta property="og:image" content="https://www.monerio.cz/logo.png" />
+    <meta property="og:url" content="https://www.monerio.cz/kalkulacky-hypoteka" />
+    <meta property="og:locale" content="cs_CZ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hypoteční kalkulačka | Monerio" />
+    <meta name="twitter:description" content="Spočítejte si měsíční splátku hypotéky a celkový přeplatek." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..500&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body data-barba="wrapper">
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo-link"><img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo"></a>
+            <nav class="nav-links d-none-mobile">
+                <a href="/sluzby.html">Služby</a>
+                <a href="/kalkulacky.html" class="active">Kalkulačky</a>
+                <a href="/o-nas.html">O nás</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/kontakt.html">Kontakt</a>
+            </nav>
+            <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/sluzby.html" class="mobile-link">Služby</a>
+        <a href="/kalkulacky.html" class="mobile-link">Kalkulačky</a>
+        <a href="/o-nas.html" class="mobile-link">O nás</a>
+        <a href="/blog.html" class="mobile-link">Blog</a>
+        <a href="/kontakt.html" class="mobile-link">Kontakt</a>
+    </div>
+
+    <div class="page-transition-overlay" id="page-transition"></div>
+
+    <main data-barba="container" data-barba-namespace="kalkulacka">
+
+    <!-- HERO -->
+    <section class="calc-hero">
+        <div class="container fade-in-up">
+            <span class="subtitle-badge">Finanční nástroje</span>
+            <h1>Hypoteční kalkulačka</h1>
+            <p class="calc-hero-desc">Zjistěte, kolik budete měsíčně splácet, kolik celkem zaplatíte a jak se splátky rozloží mezi jistinu a úroky v průběhu let.</p>
+        </div>
+    </section>
+
+    <!-- SUB-NAVIGATION -->
+    <nav class="calc-subnav">
+        <div class="container">
+            <a href="/kalkulacky-hypoteka.html" class="calc-subnav-item active">Hypotéka</a>
+            <a href="/kalkulacky-investice.html" class="calc-subnav-item">Investice</a>
+            <a href="/kalkulacky-inflace.html" class="calc-subnav-item">Inflace</a>
+            <a href="/kalkulacky-penze.html" class="calc-subnav-item">Penze</a>
+        </div>
+    </nav>
+
+    <!-- CALCULATOR -->
+    <section class="calc-detail" id="calc-mortgage">
+        <div class="container">
+            <div class="calc-layout">
+                <!-- INPUTS -->
+                <div class="calc-inputs">
+                    <div class="calc-field">
+                        <div class="calc-field-header">
+                            <label for="mortgage-amount">Výše úvěru</label>
+                            <button class="tooltip-trigger" aria-label="Nápověda">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </button>
+                            <div class="tooltip-content">Zadejte celkovou částku hypotečního úvěru, kterou potřebujete od banky.</div>
+                        </div>
+                        <div class="calc-input-row">
+                            <input type="range" id="mortgage-amount-range" min="500000" max="15000000" step="100000" value="4000000">
+                            <input type="number" id="mortgage-amount" min="500000" max="15000000" step="100000" value="4000000">
+                            <span class="calc-unit">Kč</span>
+                        </div>
+                    </div>
+                    <div class="calc-field">
+                        <div class="calc-field-header">
+                            <label for="mortgage-rate">Úroková sazba</label>
+                            <button class="tooltip-trigger" aria-label="Nápověda">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </button>
+                            <div class="tooltip-content">Aktuální hypoteční sazby se pohybují kolem 4,5–5,5 %. Závisí na délce fixace — kratší fixace = nižší sazba, ale vyšší riziko při změně.</div>
+                        </div>
+                        <div class="calc-input-row">
+                            <input type="range" id="mortgage-rate-range" min="1" max="10" step="0.1" value="5">
+                            <input type="number" id="mortgage-rate" min="1" max="10" step="0.1" value="5">
+                            <span class="calc-unit">%</span>
+                        </div>
+                    </div>
+                    <div class="calc-field">
+                        <div class="calc-field-header">
+                            <label for="mortgage-years">Doba splácení</label>
+                            <button class="tooltip-trigger" aria-label="Nápověda">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            </button>
+                            <div class="tooltip-content">Delší doba splácení znamená nižší měsíční splátku, ale výrazně vyšší celkový přeplatek na úrocích.</div>
+                        </div>
+                        <div class="calc-input-row">
+                            <input type="range" id="mortgage-years-range" min="5" max="30" step="1" value="25">
+                            <input type="number" id="mortgage-years" min="5" max="30" step="1" value="25">
+                            <span class="calc-unit">let</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHARTS -->
+                <div class="calc-chart-area">
+                    <div class="calc-chart-box">
+                        <h3 class="calc-chart-title">Poměr jistiny a úroků</h3>
+                        <div class="calc-chart-wrap calc-chart-donut-wrap">
+                            <canvas id="mortgage-donut"></canvas>
+                        </div>
+                    </div>
+                    <div class="calc-chart-box" style="margin-top: 2rem;">
+                        <h3 class="calc-chart-title">Splátky po rocích</h3>
+                        <div class="calc-chart-wrap">
+                            <canvas id="mortgage-amort"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="calc-results-section">
+        <div class="container">
+            <div class="calc-results-grid">
+                <div class="calc-result-card">
+                    <span class="calc-result-label">Měsíční splátka</span>
+                    <span class="calc-result-value" id="mortgage-monthly">0 Kč</span>
+                </div>
+                <div class="calc-result-card">
+                    <span class="calc-result-label">Celkem zaplaceno</span>
+                    <span class="calc-result-value calc-result-value-sm" id="mortgage-total">0 Kč</span>
+                </div>
+                <div class="calc-result-card">
+                    <span class="calc-result-label">Přeplatek na úrocích</span>
+                    <span class="calc-result-value calc-result-value-sm calc-result-negative" id="mortgage-overpay">0 Kč</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSIGHT BOX -->
+    <section class="calc-insight-section">
+        <div class="container">
+            <div class="calc-insight-box">
+                <div class="calc-insight-header">
+                    <span class="calc-insight-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><line x1="9" y1="21" x2="15" y2="21"/></svg>
+                    </span>
+                    <h3>Co to znamená pro vás</h3>
+                </div>
+                <div class="calc-insight-text" id="insight-text"></div>
+                <a href="/kontakt.html" class="btn btn-primary" style="margin-top: 1.5rem;">Chci optimalizovat hypotéku →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEXT CALCULATOR -->
+    <section class="calc-next">
+        <div class="container text-center">
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Vyzkoušejte také</p>
+            <a href="/kalkulacky-investice.html" class="btn btn-outline">Investiční kalkulačka →</a>
+        </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section style="padding: 2rem 0 4rem;">
+        <div class="container">
+            <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; text-align: center; line-height: 1.6;">
+                Výpočty jsou orientační a slouží jako informativní pomůcka. Skutečné podmínky hypotečního úvěru závisí na
+                individuálním posouzení bankou, bonitě klienta a aktuální nabídce. Pro přesnou kalkulaci kontaktujte
+                našeho poradce.
+            </p>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
+                    <p style="font-size:0.9rem;">Architekt vašich financí v České republice.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="/sluzby.html">Služby</a></li>
+                        <li><a href="/kalkulacky.html">Kalkulačky</a></li>
+                        <li><a href="/o-nas.html">O nás</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Pobočka</h4>
+                    <ul>
+                        <li><span style="color:var(--text-muted); font-size:0.9rem;">Heřmanická 1182/19<br />Praha, 182 00</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-compliance">
+                <p><strong>Legislativa (ČNB):</strong> Služby v oblastech pojištění, investic a úvěrů poskytuji jako
+                    vázaný zástupce zprostředkovatele FINVOX a.s., IČO: 03068102. Jsem zapsán(-a) v <a
+                        href="https://apl.cnb.cz/apljerrsdad/JERRS.WEB10.VIZITKA?p_lang=cz" target="_blank"
+                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">registru ČNB</a>.</p>
+                <p>Veškeré texty a informace na tomto webu mají výhradně edukativní charakter a nepředstavují závazné
+                    investiční doporučení ani obchodní nabídku ve smyslu zákona.</p>
+                <p>V případě sporu máte právo obrátit se na <a href="https://finarbitr.cz/" target="_blank"
+                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">Finančního arbitra ČR</a>.</p>
+            </div>
+            <div class="footer-bottom">
+                <a href="/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
+                <a href="/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád</a>
+                <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: right; width: 100%;">&copy; 2026 MONERIO</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="container cookie-inner">
+            <div class="cookie-text">
+                <p>Tento web používá cookies pro zajištění funkčnosti a analýzu návštěvnosti. Podrobnosti najdete v
+                    naší <a href="/gdpr-finvox.pdf" target="_blank">politice ochrany soukromí</a>.</p>
+            </div>
+            <div class="cookie-actions">
+                <button class="btn btn-outline btn-sm" id="cookie-reject">Odmítnout</button>
+                <button class="btn btn-primary btn-sm" id="cookie-accept">Přijmout vše</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

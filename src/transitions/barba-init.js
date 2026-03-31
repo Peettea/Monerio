@@ -10,6 +10,7 @@ import { initFooterAnimation } from '../animations/footer.js'
 import { initCounters } from '../animations/counters.js'
 import { initHeroAnimations, initHeroParticles, cleanupHeroParticles } from '../animations/hero.js'
 import { updateActiveNavLink, reinitNavScrollTriggers } from '../animations/nav.js'
+import { initCalculatorAnimations, initCalcDetailAnimations } from '../animations/calculators.js'
 
 function initPageAnimations(namespace) {
   // Common animations for all pages
@@ -40,6 +41,18 @@ function initPageAnimations(namespace) {
       break
     case 'article':
       initTextAnimations()
+      break
+    case 'kalkulacky':
+      initTextAnimations()
+      initCalculatorAnimations()
+      break
+    case 'kalkulacka':
+      initTextAnimations()
+      initCalcDetailAnimations()
+      // Dynamic import: detect which calculator and init it
+      import('../calculators/shared.js').then(({ initCalcDetail }) => {
+        initCalcDetail()
+      })
       break
   }
 }
