@@ -1,59 +1,31 @@
 <!DOCTYPE html>
 <html lang="cs">
-
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Investiční kalkulačka | Monerio</title>
-    <meta name="description"
-        content="Spočítejte si, jak porostou vaše peníze díky složenému úročení. Simulace růstu portfolia s ETF, akciemi i dluhopisy." />
-    <link rel="canonical" href="https://www.monerio.cz/kalkulacky-investice" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Investiční kalkulačka | Monerio" />
-    <meta property="og:description"
-        content="Spočítejte si, jak porostou vaše peníze díky složenému úročení. Simulace růstu portfolia s ETF, akciemi i dluhopisy." />
-    <meta property="og:image" content="https://www.monerio.cz/logo.png" />
-    <meta property="og:url" content="https://www.monerio.cz/kalkulacky-investice" />
-    <meta property="og:locale" content="cs_CZ" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Investiční kalkulačka | Monerio" />
-    <meta name="twitter:description"
-        content="Spočítejte si, jak porostou vaše peníze díky složenému úročení. Simulace růstu portfolia." />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Investiční kalkulačka Monerio",
-      "description": "Interaktivní investiční kalkulačka — složené úročení, růst portfolia, ETF, akcie, dluhopisy.",
-      "url": "https://www.monerio.cz/kalkulacky-investice",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "provider": {
-        "@type": "FinancialService",
-        "name": "Monerio"
-      }
-    }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..500&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/style.css">
+    <title>Monerio | Investice a Penze</title>
+    <meta name="description" content="Spočítejte si svou důchodovou propast a zjistěte, kolik peněz vám může přinést stát z DIP a DPS." />
 </head>
-
 <body data-barba="wrapper">
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div class="page-transition-overlay" id="page-transition"></div>
+
     <!-- NAVBAR -->
     <header class="navbar">
-        <div class="container nav-content">
-            <a href="/" class="logo-link"><img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo"></a>
+        <div class="container nav-content fade-in-up">
+            <a href="/" class="logo-link">
+                <img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo">
+            </a>
             <nav class="nav-links d-none-mobile">
                 <a href="/sluzby.html">Služby</a>
-                <a href="/kalkulacky.html" class="active">Kalkulačky</a>
+                <a href="/kalkulacky.html">Kalkulačky</a>
                 <a href="/o-nas.html">O nás</a>
                 <a href="/blog.html">Blog</a>
                 <a href="/kontakt.html">Kontakt</a>
             </nav>
             <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+
             <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
                 <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -63,175 +35,291 @@
             </button>
         </div>
     </header>
+
     <div class="mobile-menu" id="mobile-menu">
         <a href="/sluzby.html" class="mobile-link">Služby</a>
         <a href="/kalkulacky.html" class="mobile-link">Kalkulačky</a>
         <a href="/o-nas.html" class="mobile-link">O nás</a>
         <a href="/blog.html" class="mobile-link">Blog</a>
         <a href="/kontakt.html" class="mobile-link">Kontakt</a>
+        <a href="/kontakt.html" class="btn btn-primary mt-4" style="width: 100%;">Domluvit konzultaci</a>
     </div>
 
-    <div class="page-transition-overlay" id="page-transition"></div>
-
     <main data-barba="container" data-barba-namespace="kalkulacka">
+        <section class="calc2-container">
+            <a href="/kalkulacky.html" style="color: var(--text-light); text-decoration: none; font-size: 0.95rem; margin-bottom: 24px; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; font-weight: 500;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--text-light)'">&larr; Zpět na přehled kalkulaček</a>
 
-    <!-- HERO -->
-    <section class="calc-hero">
-        <div class="container fade-in-up">
-            <span class="subtitle-badge">Finanční nástroje</span>
-            <h1>Investiční kalkulačka</h1>
-            <p class="calc-hero-desc">Podívejte se, jak vaše peníze porostou díky složenému úročení. Upravte počáteční vklad, měsíční investici a sledujte růst portfolia v čase.</p>
-        </div>
-    </section>
-
-    <!-- SUB-NAVIGATION -->
-    <nav class="calc-subnav">
-        <div class="container">
-            <a href="/kalkulacky-hypoteka.html" class="calc-subnav-item">Hypotéka</a>
-            <a href="/kalkulacky-investice.html" class="calc-subnav-item active">Investice</a>
-            <a href="/kalkulacky-inflace.html" class="calc-subnav-item">Inflace</a>
-            <a href="/kalkulacky-penze.html" class="calc-subnav-item">Penze</a>
-        </div>
-    </nav>
-
-    <!-- CALCULATOR -->
-    <section class="calc-detail" id="calc-investment">
-        <div class="container">
-            <div class="calc-layout">
-                <!-- INPUTS -->
-                <div class="calc-inputs">
-                    <div class="calc-field">
-                        <div class="calc-field-header">
-                            <label for="invest-initial">Počáteční vklad</label>
-                            <button class="tooltip-trigger" aria-label="Nápověda">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                            </button>
-                            <div class="tooltip-content">Jednorázová částka na začátku investování. Čím vyšší, tím rychleji se rozhýbe složené úročení.</div>
-                        </div>
-                        <div class="calc-input-row">
-                            <input type="range" id="invest-initial-range" min="0" max="5000000" step="10000" value="100000">
-                            <input type="number" id="invest-initial" min="0" max="5000000" step="10000" value="100000">
-                            <span class="calc-unit">Kč</span>
-                        </div>
-                    </div>
-                    <div class="calc-field">
-                        <div class="calc-field-header">
-                            <label for="invest-monthly">Měsíční vklad</label>
-                            <button class="tooltip-trigger" aria-label="Nápověda">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                            </button>
-                            <div class="tooltip-content">Pravidelnost je klíčem k úspěchu — i malá částka dělá velký rozdíl díky složenému úročení.</div>
-                        </div>
-                        <div class="calc-input-row">
-                            <input type="range" id="invest-monthly-range" min="500" max="50000" step="500" value="5000">
-                            <input type="number" id="invest-monthly" min="500" max="50000" step="500" value="5000">
-                            <span class="calc-unit">Kč</span>
-                        </div>
-                    </div>
-                    <div class="calc-field">
-                        <div class="calc-field-header">
-                            <label for="invest-return">Očekávaný výnos</label>
-                            <button class="tooltip-trigger" aria-label="Nápověda">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                            </button>
-                            <div class="tooltip-content">Historický průměr akciového trhu: 7–10 % p.a. Konzervativní dluhopisové portfolio: 3–5 %.</div>
-                        </div>
-                        <div class="calc-input-row">
-                            <input type="range" id="invest-return-range" min="1" max="15" step="0.5" value="7">
-                            <input type="number" id="invest-return" min="1" max="15" step="0.5" value="7">
-                            <span class="calc-unit">%</span>
-                        </div>
-                    </div>
-                    <div class="calc-field">
-                        <div class="calc-field-header">
-                            <label for="invest-years">Doba investování</label>
-                            <button class="tooltip-trigger" aria-label="Nápověda">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                            </button>
-                            <div class="tooltip-content">Čím delší horizont, tím více pracuje složené úročení ve váš prospěch.</div>
-                        </div>
-                        <div class="calc-input-row">
-                            <input type="range" id="invest-years-range" min="1" max="40" step="1" value="20">
-                            <input type="number" id="invest-years" min="1" max="40" step="1" value="20">
-                            <span class="calc-unit">let</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CHART -->
-                <div class="calc-chart-area">
-                    <div class="calc-chart-box">
-                        <h3 class="calc-chart-title">Růst portfolia v čase</h3>
-                        <div class="calc-chart-wrap">
-                            <canvas id="invest-chart"></canvas>
-                        </div>
-                    </div>
-                </div>
+            <div style="margin-bottom: 40px; text-align: center;">
+                <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 16px;">Plán Vaší renty a Penze</h1>
+                <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">
+                    Standardní státní důchod znamená pro většinu lidí drastický propad životní úrovně.<br>
+                    Odhalte svou mezeru v příjmech a využijte maximum státních výhod k jejímu zalepení.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <!-- RESULTS -->
-    <section class="calc-results-section">
-        <div class="container">
-            <div class="calc-results-grid">
-                <div class="calc-result-card">
-                    <span class="calc-result-label">Celková hodnota portfolia</span>
-                    <span class="calc-result-value" id="invest-total-value">0 Kč</span>
-                </div>
-                <div class="calc-result-card">
-                    <span class="calc-result-label">Celkem vloženo</span>
-                    <span class="calc-result-value calc-result-value-sm" id="invest-deposited">0 Kč</span>
-                </div>
-                <div class="calc-result-card">
-                    <span class="calc-result-label">Čistý výnos</span>
-                    <span class="calc-result-value calc-result-value-sm calc-result-positive" id="invest-profit">0 Kč</span>
-                </div>
+            <div class="calc2-layout">
+
+                <!-- LEVÝ PANEL: VSTUPY -->
+                <aside class="calc2-sidebar">
+                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">Vaše situace</h3>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Váš věk
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Věk klienta</div>
+                                    Automaticky se spočítá horizont do důchodu (67 let) a odhadnou se roky pojištění.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-age">35 let</div>
+                        <input type="range" id="slider-age" class="calc2-range" min="18" max="65" step="1" value="35">
+                    </div>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Můj současný čistý příjem
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Čistý příjem</div>
+                                    Váš čistý příjem se přesně převede na hrubou mzdu pro výpočet státního důchodu přes redukční hranice MPSV.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-income">40 000 Kč</div>
+                        <input type="range" id="slider-income" class="calc2-range" min="15000" max="150000" step="1000" value="40000">
+                    </div>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Za jak dlouho půjdu do důchodu
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Cílový věk odchodu</div>
+                                    Od roku 2025 je cíl odchodu ve věku 67 let. Automaticky se počítá z věku, ale můžete si upravit.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-horizon">32 let</div>
+                        <input type="range" id="slider-horizon" class="calc2-range" min="5" max="45" step="1" value="32">
+                    </div>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Roky pojištění (odpracované)
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Roky státního pojištění</div>
+                                    Kolik let jste byli zaměstnáni a platili sociální pojištění. Ovlivňuje výši státního důchodu (1,5 % za rok).
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-ins-years">17 let</div>
+                        <input type="range" id="slider-ins-years" class="calc2-range" min="0" max="45" step="1" value="17">
+                    </div>
+
+                    <div style="margin: 16px 0; border-top: 1px solid rgba(255,255,255,0.08);"></div>
+
+                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 16px;">Spoření a investice</h3>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Měsíčně si chci spořit
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Měsíční investice</div>
+                                    Kolik peněz zvládnete odložit. Doporučované minimum je 10 % z čistého příjmu.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-monthly">5 000 Kč</div>
+                        <input type="range" id="slider-monthly" class="calc2-range" min="500" max="30000" step="500" value="5000">
+                    </div>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Existující úspory
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Pohotovostní a volné rezervy</div>
+                                    Pokud již máte naspořeno (na účtu, v DPS, DIP, ETF...), zadejte částku jako startovní bod.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-savings">0 Kč</div>
+                        <input type="range" id="slider-savings" class="calc2-range" min="0" max="5000000" step="50000" value="0">
+                    </div>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Profil rizika (očekávaný výnos)</label>
+                        <div class="calc2-risk-group">
+                            <button class="calc2-risk-btn" data-rate="0.03">Opatrný<br><small>3 %</small></button>
+                            <button class="calc2-risk-btn" data-rate="0.055">Vyvážený<br><small>5,5 %</small></button>
+                            <button class="calc2-risk-btn calc2-risk-btn--active" data-rate="0.08">Dynamický<br><small>8 %</small></button>
+                        </div>
+                    </div>
+
+                    <div style="margin: 16px 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
+                        <h4 style="font-size: 0.9rem; font-weight: 600; color: var(--accent-gold); margin-bottom: 12px;">Státní podpora (DPS a DIP)</h4>
+
+                        <label class="calc2-toggle" style="margin-bottom: 12px;">
+                            <input type="checkbox" id="toggle-state" checked>
+                            <div class="calc2-toggle-box"></div>
+                            <span style="font-size: 0.85rem; font-weight: 600;">Chci plnou státní podporu
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Podpora penzijních produktů</div>
+                                        Penzijní spoření a DIP poskytují při chytrém nastavení daňové vratky a přímé dotace, které dosahují až 11 280 Kč ročně.
+                                    </div>
+                                </span>
+                            </span>
+                        </label>
+
+                        <div class="calc2-input-group">
+                            <label class="calc2-label">Příspěvek zaměstnavatele
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Zaměstnavatelský benefit</div>
+                                        Zaměstnavatel může přispívat až 50 000 Kč ročně bez jakýchkoliv odvodů.
+                                    </div>
+                                </span>
+                            </label>
+                            <div class="calc2-value-display" id="val-employer">0 Kč</div>
+                            <input type="range" id="slider-employer" class="calc2-range" min="0" max="4000" step="500" value="0">
+                        </div>
+                    </div>
+
+                    <!-- Cost of Inaction box -->
+                    <div style="margin-top: 16px; padding: 20px; background: rgba(255,76,76,0.05); border: 1px solid rgba(255,76,76,0.2); border-radius: 16px;">
+                        <label class="calc2-label" style="color: #ff4c4c;">Ztráta z čekání
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Daň z nečinnosti</div>
+                                    Pokud necháte peníze na účtu a začnete investovat později, vaše zhodnocení drasticky klesne.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-input-group" style="margin-top: 8px;">
+                            <div style="display:flex; justify-content: space-between;">
+                                <span style="font-size: 0.82rem; color: #a1a1aa;">Co když začnu až za:</span>
+                                <strong style="color: #ff4c4c; font-size: 1rem;" id="val-delay">0 let</strong>
+                            </div>
+                            <input type="range" id="slider-delay" class="calc2-range calc2-range--danger" min="0" max="10" step="1" value="0">
+                        </div>
+                        <div style="margin-top: 12px; text-align: center;">
+                            <span style="font-size: 0.75rem; color: #a1a1aa; text-transform: uppercase;">O kolik víc zaplatíte:</span>
+                            <div style="color: #ff4c4c; font-size: 1.4rem; font-weight: 800; margin-top: 4px;" id="kpi-loss">0 Kč</div>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- PRAVÝ PANEL: VÝSLEDKY -->
+                <main class="calc2-main">
+
+                    <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: -16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">Státní důchodová realita (2026)</h3>
+                    <div class="calc2-kpi-grid">
+                        <div class="calc2-kpi-card" style="border-top: 3px solid rgba(255,255,255,0.3);">
+                            <span class="calc2-kpi-label">Státní důchod (Odhad)
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Státní důchod 2026</div>
+                                        Výpočet navázán na redukční hranice MPSV 2026. Příjem nad 195 868 Kč hrubého se do důchodu nezapočítává.
+                                    </div>
+                                </span>
+                            </span>
+                            <div class="calc2-kpi-val neutral" id="kpi-state-pension">0 Kč</div>
+                            <div style="font-size: 0.85rem; color: #a1a1aa; margin-top: 8px;">/ měsíčně z I. pilíře</div>
+                        </div>
+                        <div class="calc2-kpi-card" style="background: rgba(255,76,76,0.04); border-top: 3px solid #ff4c4c;">
+                            <span class="calc2-kpi-label">Příjmová propast
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Vaše příjmová propast</div>
+                                        Rozdíl mezi vaším současným platem a důchodem. Tato mezera omezí váš život bez investic.
+                                    </div>
+                                </span>
+                            </span>
+                            <div class="calc2-kpi-val negative" id="kpi-gap">0 Kč</div>
+                            <div style="font-size: 0.85rem; color: #a1a1aa; margin-top: 8px;">/ chybí k původnímu platu</div>
+                        </div>
+                        <div class="calc2-kpi-card" style="border-top: 3px solid rgba(255,255,255,0.15);">
+                            <span class="calc2-kpi-label">Náhradový poměr</span>
+                            <div class="calc2-kpi-val neutral" id="kpi-replacement" style="font-size: 2rem;">0 %</div>
+                            <div style="font-size: 0.85rem; color: #a1a1aa; margin-top: 8px;">důchod vs. současný příjem</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 16px; margin-bottom: -16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">Modelace spoření</h3>
+                    <div class="calc2-kpi-grid">
+                        <div class="calc2-kpi-card" style="background: rgba(212, 175, 55, 0.05); border-top: 3px solid var(--accent-gold);">
+                            <span class="calc2-kpi-label">Roční státní podpora
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Státní podpora dohromady</div>
+                                        Součet: 20% příspěvek DPS + 15% daňová úleva DIP + příspěvek zaměstnavatele.
+                                    </div>
+                                </span>
+                            </span>
+                            <div class="calc2-kpi-val gold" id="kpi-yearly-support">0 Kč</div>
+                            <div style="font-size: 0.85rem; color: #a1a1aa; margin-top: 8px;">Prémie ročně navíc</div>
+                        </div>
+                        <div class="calc2-kpi-card" style="background: rgba(76, 175, 80, 0.05); border-top: 3px solid #4CAF50;">
+                            <span class="calc2-kpi-label">Naspořeno do důchodu</span>
+                            <div class="calc2-kpi-val positive" id="kpi-total-wealth">0 Kč</div>
+                            <div style="font-size: 0.85rem; color: #a1a1aa; margin-top: 8px;">Celkem se složeným úročením</div>
+                        </div>
+                        <div class="calc2-kpi-card" style="border-top: 3px solid rgba(255,255,255,0.3);">
+                            <span class="calc2-kpi-label">Doba pokrytí propasti
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Vyčerpání všech rezerv</div>
+                                        Na kolik let vám polštář vydrží, pokud jím budete lepit chybějící příjmy (konzervativní předpoklad — výnos kryje inflaci).
+                                    </div>
+                                </span>
+                            </span>
+                            <div class="calc2-kpi-val neutral" id="kpi-duration">0 let</div>
+                            <div style="font-size: 0.85rem; color: #a1a1aa; margin-top: 8px;">Finanční nezávislost</div>
+                        </div>
+                    </div>
+
+                    <!-- Tabulka ročních benefitů -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 20px;">
+                        <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 12px;">Roční přehled státní podpory</h4>
+                        <table class="calc2-benefit-table">
+                            <tr><td>DPS státní příspěvek (20 %)</td><td id="benefit-dps">—</td></tr>
+                            <tr><td>DIP daňová úspora (15 %)</td><td id="benefit-tax">—</td></tr>
+                            <tr><td>Příspěvek zaměstnavatele</td><td id="benefit-employer">—</td></tr>
+                            <tr><td><strong>Celkem ročně navíc</strong></td><td id="benefit-total">—</td></tr>
+                        </table>
+                    </div>
+
+                    <!-- Dopad poplatků -->
+                    <div style="background: rgba(255,76,76,0.03); border: 1px solid rgba(255,76,76,0.1); border-radius: 12px; padding: 14px 20px; display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.3rem;">⚠</span>
+                        <div>
+                            <span style="font-size: 0.82rem; color: var(--text-light);">Dopad 1% poplatku fondů za celý horizont:</span>
+                            <strong style="color: #ff4c4c; margin-left: 8px;" id="kpi-fee-impact">0 Kč</strong>
+                        </div>
+                    </div>
+
+                    <!-- GRAF -->
+                    <div>
+                        <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 16px;">Vývoj majetku (Nečinnost vs Efektivita)</h3>
+                        <div class="calc2-chart-container" style="height: 380px;">
+                            <canvas id="chart-investment"></canvas>
+                        </div>
+                        <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 16px;">
+                            Data předpokládají průměrný výnos dle zvoleného rizikového profilu + zohledňují státní dotace a daňové páky v čase.
+                        </p>
+                    </div>
+
+                    <a href="/kontakt.html" class="story-button" style="align-self: center; margin-top: 24px; padding: 20px 48px; width: auto;">Spočítejte mi detailní plán pro pokrytí příjmové propasti &rarr;</a>
+
+                </main>
             </div>
-        </div>
-    </section>
-
-    <!-- INSIGHT BOX -->
-    <section class="calc-insight-section">
-        <div class="container">
-            <div class="calc-insight-box">
-                <div class="calc-insight-header">
-                    <span class="calc-insight-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><line x1="9" y1="21" x2="15" y2="21"/></svg>
-                    </span>
-                    <h3>Co to znamená pro vás</h3>
-                </div>
-                <div class="calc-insight-text" id="insight-text"></div>
-                <a href="/kontakt.html" class="btn btn-primary" style="margin-top: 1.5rem;">Sestavíme vám investiční plán →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEXT CALCULATOR -->
-    <section class="calc-next">
-        <div class="container text-center">
-            <p style="color: var(--text-muted); margin-bottom: 1rem;">Vyzkoušejte také</p>
-            <a href="/kalkulacky-inflace.html" class="btn btn-outline">Inflační kalkulačka →</a>
-        </div>
-    </section>
-
-    <!-- DISCLAIMER -->
-    <section style="padding: 2rem 0 4rem;">
-        <div class="container">
-            <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; text-align: center; line-height: 1.6;">
-                Kalkulačka slouží pouze jako orientační nástroj a nezohledňuje poplatky, daně ani inflaci. Investování
-                na finančních trzích je spojeno s rizikem — hodnota investice může klesnout i vzrůst a návratnost není
-                zaručena. Minulé výnosy nejsou zárukou budoucích výsledků. Pro přesný plán na míru kontaktujte
-                našeho poradce.
-            </p>
-        </div>
-    </section>
+        </section>
 
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container">
+        <div class="container fade-in-up">
             <div class="footer-top">
                 <div class="footer-brand">
                     <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
@@ -254,16 +342,18 @@
                     </ul>
                 </div>
             </div>
+
             <div class="footer-compliance">
-                <p><strong>Legislativa (ČNB):</strong> Služby v oblastech pojištění, investic a úvěrů poskytuji jako
-                    vázaný zástupce zprostředkovatele FINVOX a.s., IČO: 03068102. Jsem zapsán(-a) v <a
-                        href="https://apl.cnb.cz/apljerrsdad/JERRS.WEB10.VIZITKA?p_lang=cz" target="_blank"
-                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">registru ČNB</a>.</p>
-                <p>Veškeré texty a informace na tomto webu mají výhradně edukativní charakter a nepředstavují závazné
-                    investiční doporučení ani obchodní nabídku ve smyslu zákona.</p>
+                <p><strong>Legislativa (ČNB):</strong> Služby v oblastech pojištění, investic a úvěrů poskytuji jako vázaný
+                zástupce zprostředkovatele FINVOX a.s., IČO: 03068102. Jsem zapsán(-a) v <a
+                    href="https://apl.cnb.cz/apljerrsdad/JERRS.WEB10.VIZITKA?p_lang=cz" target="_blank"
+                    style="color: rgba(255,255,255,0.5); text-decoration: underline;">registru ČNB</a>.</p>
+                <p>Veškeré texty a informace na tomto webu mají výhradně edukativní charakter a nepředstavují závazné investiční
+                doporučení ani obchodní nabídku ve smyslu zákona.</p>
                 <p>V případě sporu máte právo obrátit se na <a href="https://finarbitr.cz/" target="_blank"
-                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">Finančního arbitra ČR</a>.</p>
+                    style="color: rgba(255,255,255,0.5); text-decoration: underline;">Finančního arbitra ČR</a>.</p>
             </div>
+
             <div class="footer-bottom">
                 <a href="/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
                 <a href="/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád</a>
@@ -272,20 +362,6 @@
         </div>
     </footer>
 
-    <div class="cookie-banner" id="cookie-banner">
-        <div class="container cookie-inner">
-            <div class="cookie-text">
-                <p>Tento web používá cookies pro zajištění funkčnosti a analýzu návštěvnosti. Podrobnosti najdete v
-                    naší <a href="/gdpr-finvox.pdf" target="_blank">politice ochrany soukromí</a>.</p>
-            </div>
-            <div class="cookie-actions">
-                <button class="btn btn-outline btn-sm" id="cookie-reject">Odmítnout</button>
-                <button class="btn btn-primary btn-sm" id="cookie-accept">Přijmout vše</button>
-            </div>
-        </div>
-    </div>
-
     <script type="module" src="/src/main.js"></script>
 </body>
-
 </html>

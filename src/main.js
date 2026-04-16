@@ -1,4 +1,5 @@
 import './style.css'
+import './tooltips.css'
 import './animations.css'
 import { initGSAP } from './animations/gsap-init.js'
 import { initLenis } from './smooth-scroll/lenis-init.js'

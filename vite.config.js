@@ -18,8 +18,8 @@ export default defineConfig({
         '/kalkulacky',
         '/kalkulacky-hypoteka',
         '/kalkulacky-investice',
-        '/kalkulacky-inflace',
-        '/kalkulacky-penze'
+        '/kalkulacky-rentgen-mzdy',
+        '/kalkulacky-vypadek-prijmu'
       ]
     })
   ],
@@ -37,8 +37,8 @@ export default defineConfig({
         kalkulacky: resolve(__dirname, 'kalkulacky.html'),
         'kalkulacky-hypoteka': resolve(__dirname, 'kalkulacky-hypoteka.html'),
         'kalkulacky-investice': resolve(__dirname, 'kalkulacky-investice.html'),
-        'kalkulacky-inflace': resolve(__dirname, 'kalkulacky-inflace.html'),
-        'kalkulacky-penze': resolve(__dirname, 'kalkulacky-penze.html'),
+        'kalkulacky-rentgen-mzdy': resolve(__dirname, 'kalkulacky-rentgen-mzdy.html'),
+        'kalkulacky-vypadek-prijmu': resolve(__dirname, 'kalkulacky-vypadek-prijmu.html'),
       },
     },
   },

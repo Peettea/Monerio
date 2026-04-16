@@ -22,6 +22,10 @@ export function initScrollReveals() {
           toggleActions: 'play none none none',
           invalidateOnRefresh: true,
         },
+        onStart: () => {
+          el.classList.remove('fade-in-up')
+          el.removeAttribute('data-reveal')
+        }
       }
     )
   })

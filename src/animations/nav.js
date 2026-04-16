@@ -5,6 +5,12 @@ export function initNav() {
   const navbar = document.querySelector('.navbar')
   if (!navbar) return
 
+  // Prevent flicker by removing the global scroll-reveal class after first mount
+  const navContent = navbar.querySelector('.nav-content')
+  if (navContent && navContent.classList.contains('fade-in-up')) {
+    setTimeout(() => navContent.classList.remove('fade-in-up'), 100)
+  }
+
   initNavScrollTriggers(navbar)
 
   // Mobile menu
@@ -48,7 +54,13 @@ function initNavScrollTriggers(navbar) {
 
 export function reinitNavScrollTriggers() {
   const navbar = document.querySelector('.navbar')
-  if (navbar) initNavScrollTriggers(navbar)
+  if (navbar) {
+    // Hard reset position before adding new triggers to avoid it getting stuck off-screen
+    gsap.set(navbar, { y: 0, clearProps: 'all' })
+    navbar.style.padding = ''
+    navbar.style.boxShadow = ''
+    initNavScrollTriggers(navbar)
+  }
 }
 
 function initMobileMenu() {

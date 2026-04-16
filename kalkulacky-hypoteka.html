@@ -5,261 +5,334 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hypoteční kalkulačka | Monerio</title>
+    <title>Monerio | Hypotéka — Cena za odkládání</title>
     <meta name="description"
-        content="Spočítejte si měsíční splátku hypotéky, celkový přeplatek a podívejte se na amortizační plán. Interaktivní hypoteční kalkulačka od Monerio." />
-    <link rel="canonical" href="https://www.monerio.cz/kalkulacky-hypoteka" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Hypoteční kalkulačka | Monerio" />
-    <meta property="og:description" content="Spočítejte si měsíční splátku hypotéky a celkový přeplatek." />
-    <meta property="og:image" content="https://www.monerio.cz/logo.png" />
-    <meta property="og:url" content="https://www.monerio.cz/kalkulacky-hypoteka" />
-    <meta property="og:locale" content="cs_CZ" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hypoteční kalkulačka | Monerio" />
-    <meta name="twitter:description" content="Spočítejte si měsíční splátku hypotéky a celkový přeplatek." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..500&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/style.css">
+        content="Spočítejte si, kolik vás stojí odkládání nákupu nemovitosti. Živý graf s daty ČNB a ČSÚ." />
 </head>
 
 <body data-barba="wrapper">
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <div class="container nav-content">
-            <a href="/" class="logo-link"><img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo"></a>
-            <nav class="nav-links d-none-mobile">
-                <a href="/sluzby.html">Služby</a>
-                <a href="/kalkulacky.html" class="active">Kalkulačky</a>
-                <a href="/o-nas.html">O nás</a>
-                <a href="/blog.html">Blog</a>
-                <a href="/kontakt.html">Kontakt</a>
-            </nav>
-            <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
-            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
-                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-    </header>
-    <div class="mobile-menu" id="mobile-menu">
-        <a href="/sluzby.html" class="mobile-link">Služby</a>
-        <a href="/kalkulacky.html" class="mobile-link">Kalkulačky</a>
-        <a href="/o-nas.html" class="mobile-link">O nás</a>
-        <a href="/blog.html" class="mobile-link">Blog</a>
-        <a href="/kontakt.html" class="mobile-link">Kontakt</a>
-    </div>
-
-    <div class="page-transition-overlay" id="page-transition"></div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
 
     <main data-barba="container" data-barba-namespace="kalkulacka">
+        <section class="calc2-container">
 
-    <!-- HERO -->
-    <section class="calc-hero">
-        <div class="container fade-in-up">
-            <span class="subtitle-badge">Finanční nástroje</span>
-            <h1>Hypoteční kalkulačka</h1>
-            <p class="calc-hero-desc">Zjistěte, kolik budete měsíčně splácet, kolik celkem zaplatíte a jak se splátky rozloží mezi jistinu a úroky v průběhu let.</p>
-        </div>
-    </section>
+            <a href="/kalkulacky.html" class="calc2-back-link">&larr; Zpět na přehled kalkulaček</a>
 
-    <!-- SUB-NAVIGATION -->
-    <nav class="calc-subnav">
-        <div class="container">
-            <a href="/kalkulacky-hypoteka.html" class="calc-subnav-item active">Hypotéka</a>
-            <a href="/kalkulacky-investice.html" class="calc-subnav-item">Investice</a>
-            <a href="/kalkulacky-inflace.html" class="calc-subnav-item">Inflace</a>
-            <a href="/kalkulacky-penze.html" class="calc-subnav-item">Penze</a>
-        </div>
-    </nav>
-
-    <!-- CALCULATOR -->
-    <section class="calc-detail" id="calc-mortgage">
-        <div class="container">
-            <div class="calc-layout">
-                <!-- INPUTS -->
-                <div class="calc-inputs">
-                    <div class="calc-field">
-                        <div class="calc-field-header">
-                            <label for="mortgage-amount">Výše úvěru</label>
-                            <button class="tooltip-trigger" aria-label="Nápověda">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                            </button>
-                            <div class="tooltip-content">Zadejte celkovou částku hypotečního úvěru, kterou potřebujete od banky.</div>
-                        </div>
-                        <div class="calc-input-row">
-                            <input type="range" id="mortgage-amount-range" min="500000" max="15000000" step="100000" value="4000000">
-                            <input type="number" id="mortgage-amount" min="500000" max="15000000" step="100000" value="4000000">
-                            <span class="calc-unit">Kč</span>
-                        </div>
-                    </div>
-                    <div class="calc-field">
-                        <div class="calc-field-header">
-                            <label for="mortgage-rate">Úroková sazba</label>
-                            <button class="tooltip-trigger" aria-label="Nápověda">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                            </button>
-                            <div class="tooltip-content">Aktuální hypoteční sazby se pohybují kolem 4,5–5,5 %. Závisí na délce fixace — kratší fixace = nižší sazba, ale vyšší riziko při změně.</div>
-                        </div>
-                        <div class="calc-input-row">
-                            <input type="range" id="mortgage-rate-range" min="1" max="10" step="0.1" value="5">
-                            <input type="number" id="mortgage-rate" min="1" max="10" step="0.1" value="5">
-                            <span class="calc-unit">%</span>
-                        </div>
-                    </div>
-                    <div class="calc-field">
-                        <div class="calc-field-header">
-                            <label for="mortgage-years">Doba splácení</label>
-                            <button class="tooltip-trigger" aria-label="Nápověda">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                            </button>
-                            <div class="tooltip-content">Delší doba splácení znamená nižší měsíční splátku, ale výrazně vyšší celkový přeplatek na úrocích.</div>
-                        </div>
-                        <div class="calc-input-row">
-                            <input type="range" id="mortgage-years-range" min="5" max="30" step="1" value="25">
-                            <input type="number" id="mortgage-years" min="5" max="30" step="1" value="25">
-                            <span class="calc-unit">let</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CHARTS -->
-                <div class="calc-chart-area">
-                    <div class="calc-chart-box">
-                        <h3 class="calc-chart-title">Poměr jistiny a úroků</h3>
-                        <div class="calc-chart-wrap calc-chart-donut-wrap">
-                            <canvas id="mortgage-donut"></canvas>
-                        </div>
-                    </div>
-                    <div class="calc-chart-box" style="margin-top: 2rem;">
-                        <h3 class="calc-chart-title">Splátky po rocích</h3>
-                        <div class="calc-chart-wrap">
-                            <canvas id="mortgage-amort"></canvas>
-                        </div>
-                    </div>
-                </div>
+            <div class="calc2-hero">
+                <h1 class="calc2-hero__title">Kolik vás stojí čekání na vlastní bydlení?</h1>
+                <p class="calc2-hero__subtitle">
+                    Všichni čekají na nižší sazby. Zatímco čekáte, ceny nemovitostí rostou
+                    a vaše úspory pokryjí stále menší část. Spočítejte si, co vás to stojí.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <!-- RESULTS -->
-    <section class="calc-results-section">
-        <div class="container">
-            <div class="calc-results-grid">
-                <div class="calc-result-card">
-                    <span class="calc-result-label">Měsíční splátka</span>
-                    <span class="calc-result-value" id="mortgage-monthly">0 Kč</span>
-                </div>
-                <div class="calc-result-card">
-                    <span class="calc-result-label">Celkem zaplaceno</span>
-                    <span class="calc-result-value calc-result-value-sm" id="mortgage-total">0 Kč</span>
-                </div>
-                <div class="calc-result-card">
-                    <span class="calc-result-label">Přeplatek na úrocích</span>
-                    <span class="calc-result-value calc-result-value-sm calc-result-negative" id="mortgage-overpay">0 Kč</span>
-                </div>
+            <div class="calc2-layout">
+
+                <!-- ═══════════════════════════════════ -->
+                <!-- LEVÝ PANEL: VSTUPY + COST OF INACTION -->
+                <!-- ═══════════════════════════════════ -->
+                <aside class="calc2-sidebar">
+                    <h3 class="calc2-section-title">Vaše situace</h3>
+
+                    <!-- Region selector -->
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">
+                            Kde chcete bydlet?
+                            <button class="mort-info-btn" data-tooltip="region" aria-label="Více informací">i</button>
+                        </label>
+                        <div class="mort-region-pills" id="region-pills">
+                            <button class="mort-pill mort-pill--active" data-region="praha">Praha</button>
+                            <button class="mort-pill" data-region="brno">Brno</button>
+                            <button class="mort-pill" data-region="cr">Průměr ČR</button>
+                        </div>
+                    </div>
+
+                    <!-- Slider: Cena nemovitosti -->
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">
+                            Cena vysněné nemovitosti
+                            <button class="mort-info-btn" data-tooltip="price" aria-label="Více informací">i</button>
+                        </label>
+                        <div class="calc2-value-display" id="val-price">8 000 000 Kč</div>
+                        <input type="range" id="slider-price" class="calc2-range" min="1000000" max="25000000"
+                            step="100000" value="8000000" aria-label="Cena nemovitosti v Kč">
+                        <span class="mort-range-hint" id="hint-price">Průměrná cena bytu v Praze: 8 mil. Kč (ČSÚ
+                            2026)</span>
+                    </div>
+
+                    <!-- Slider: Vlastní úspory -->
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">
+                            Kolik mám naspořeno
+                            <button class="mort-info-btn" data-tooltip="savings" aria-label="Více informací">i</button>
+                        </label>
+                        <div class="calc2-value-display" id="val-savings">1 600 000 Kč</div>
+                        <input type="range" id="slider-savings" class="calc2-range" min="0" max="10000000" step="100000"
+                            value="1600000" aria-label="Výše vlastních úspor v Kč">
+                        <div id="warning-ltv" class="calc2-warning"></div>
+                        <span class="mort-range-hint" id="hint-ltv">Banka chce zpravidla alespoň 20 % z ceny</span>
+                    </div>
+
+                    <!-- Slider: Délka hypotéky -->
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">
+                            Na kolik let si půjčit
+                            <button class="mort-info-btn" data-tooltip="term" aria-label="Více informací">i</button>
+                        </label>
+                        <div class="calc2-value-display" id="val-term">30 let</div>
+                        <input type="range" id="slider-term" class="calc2-range" min="10" max="30" step="1" value="30"
+                            aria-label="Délka hypotéky v letech">
+                    </div>
+
+                    <!-- Slider: Úroková sazba -->
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">
+                            Úroková sazba
+                            <button class="mort-info-btn" data-tooltip="rate" aria-label="Více informací">i</button>
+                        </label>
+                        <div class="calc2-value-display" id="val-rate">4,50 %</div>
+                        <input type="range" id="slider-rate" class="calc2-range" min="2.0" max="8.0" step="0.05"
+                            value="4.50" aria-label="Roční úroková sazba">
+                        <span class="mort-range-hint">Průměr dle ČBA: 4,46 % ročně | Monerio vyjedná výhodnější sazbu</span>
+                    </div>
+
+                    <!-- Toggles -->
+                    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px; margin-top: 0;">
+                        <label class="calc2-toggle" style="margin-bottom: 8px;">
+                            <input type="checkbox" id="toggle-young" role="switch" aria-label="Žadatel do 36 let">
+                            <div class="calc2-toggle-box"></div>
+                            <span class="calc2-label" style="margin-bottom: 0;">
+                                Je mi méně než 36 let
+                                <button class="mort-info-btn" data-tooltip="young"
+                                    aria-label="Více informací">i</button>
+                            </span>
+                        </label>
+                        <label class="calc2-toggle">
+                            <input type="checkbox" id="toggle-invest" role="switch" aria-label="Investiční úvěr">
+                            <div class="calc2-toggle-box"></div>
+                            <span class="calc2-label" style="margin-bottom: 0;">
+                                Kupuji na pronájem
+                                <button class="mort-info-btn" data-tooltip="invest"
+                                    aria-label="Více informací">i</button>
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- ═══ ČERVENÝ BOX: ZTRÁTA Z ODKLÁDÁNÍ ═══ -->
+                    <div class="mort-inaction-box">
+                        <label class="calc2-label" style="color: #ff4c4c; margin-bottom: 12px;">
+                            Ztráta z odkládání
+                            <button class="mort-info-btn" data-tooltip="delay" aria-label="Více informací">i</button>
+                        </label>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="color: #a1a1aa; font-size: 0.85rem;">Co když počkáte ještě:</span>
+                            <strong id="val-delay" style="color: #ff4c4c; font-size: 1.1rem;">3 roky</strong>
+                        </div>
+                        <input type="range" id="slider-delay" class="calc2-range calc2-range--danger" min="0" max="10"
+                            step="1" value="3" aria-label="Počet let čekání">
+
+                        <div style="text-align: center; margin-top: 12px;">
+                            <span
+                                style="color: #a1a1aa; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">O
+                                kolik víc zaplatíte:</span>
+                            <div class="mort-inaction-loss" id="kpi-loss-value">- 1 529 462 Kč</div>
+                        </div>
+
+                        <div class="mort-inaction-sub">
+                            Splátka naroste o: <strong id="kpi-payment-diff" style="color: #ff4c4c;">+ 7 745
+                                Kč/měs.</strong>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- ═══════════════════════════════════ -->
+                <!-- PRAVÝ PANEL: VÝSLEDKY              -->
+                <!-- ═══════════════════════════════════ -->
+                <main class="calc2-main">
+
+                    <!-- KPI karty -->
+                    <h3 class="calc2-section-title">Vaše hypotéka dnes</h3>
+
+                    <div class="calc2-kpi-grid">
+                        <div class="calc2-kpi-card" style="border-top: 3px solid var(--accent-gold);">
+                            <span class="calc2-kpi-label">Výše hypotéky
+                                <button class="mort-info-btn" data-tooltip="loan-amount"
+                                    aria-label="Více informací">i</button>
+                            </span>
+                            <div class="calc2-kpi-val gold" id="kpi-loan-amount">6 400 000 Kč</div>
+                            <div class="calc2-kpi-sublabel">Tolik si půjčíte od banky</div>
+                        </div>
+                        <div class="calc2-kpi-card" style="border-top: 3px solid rgba(255,255,255,0.3);">
+                            <span class="calc2-kpi-label">Měsíční splátka</span>
+                            <div class="calc2-kpi-val neutral" id="kpi-payment-now">32 400 Kč</div>
+                            <div class="calc2-kpi-sublabel">po dobu <span id="kpi-term-display">30</span> let při sazbě
+                                <span id="kpi-rate-display">4,50</span> %</div>
+                        </div>
+                        <div class="calc2-kpi-card" style="border-top: 3px solid #4CAF50;">
+                            <span class="calc2-kpi-label">Daňová úspora ročně
+                                <button class="mort-info-btn" data-tooltip="tax-deduction"
+                                    aria-label="Více informací">i</button>
+                            </span>
+                            <div class="calc2-kpi-val positive" id="benefit-tax">22 500 Kč</div>
+                            <div class="calc2-kpi-sublabel">Odpočet úroků z daní (15 %, max 150 000 Kč/rok)</div>
+                        </div>
+                    </div>
+
+                    <!-- Graf: Cena nemovitosti a splátky v čase -->
+                    <div class="mort-chart-wrapper">
+                        <h3 class="calc2-section-title calc2-section-title--compact">Cena nemovitosti a splátky v čase
+                        </h3>
+                        <div class="mort-chart-container" id="chart-inaction-wrap">
+                            <canvas id="chart-inaction"></canvas>
+                        </div>
+                        <p class="calc2-disclaimer">
+                            Červená = předpokládaný růst tržní hodnoty bytu (+6 % ročně, historický průměr).<br>
+                            Zlatá přerušovaná = jak by narostla měsíční splátka při vyšší půjčce.<br>
+                            Šedá = vaše úspory (nominálně stejné, reálně ztrácejí hodnotu).
+                            <br><span style="font-size: 0.75rem; opacity: 0.6;">Graf je ilustrativní — skutečný vývoj trhu se může lišit.</span>
+                        </p>
+                    </div>
+
+                    <!-- Historický kontext — grafy -->
+                    <div>
+                        <h3 class="calc2-section-title calc2-section-title--compact">Proč se nevyplatí čekat</h3>
+                        <div class="mort-history-cards">
+                            <div class="mort-history-card">
+                                <h4 class="mort-history-card__title">
+                                    Průměrná výše hypotéky (mil. Kč)
+                                </h4>
+                                <p class="calc2-disclaimer"
+                                    style="margin-top: 4px; margin-bottom: 12px; font-size: 0.85rem; color: var(--text-muted);">
+                                    Čím déle čekáte, tím vyšší hypotéku budete potřebovat. Růst cen nemovitostí se
+                                    přímo promítá do objemu půjčky — a tím i do výše vašich měsíčních splátek.
+                                </p>
+                                <div class="mort-chart-container mort-chart-container--sm">
+                                    <canvas id="chart-hist-mortgage"></canvas>
+                                </div>
+                                <p class="calc2-disclaimer">Zdroj: ČBA Hypomonitor</p>
+                            </div>
+                            <div class="mort-history-card">
+                                <h4 class="mort-history-card__title">
+                                    Průměrná realizovaná sazba hypoték (%)
+                                </h4>
+                                <p class="calc2-disclaimer"
+                                    style="margin-top: 4px; margin-bottom: 12px; font-size: 0.85rem; color: var(--text-muted);">
+                                    Extrémy z roku 2022 opadly. Pokud si sjednáte hypotéku teď a úroky klesnou, vždy ji
+                                    můžeme v budoucnu výhodně refinancovat (= přechod na nižší sazbu po konci fixace).
+                                </p>
+                                <div class="mort-chart-container mort-chart-container--sm">
+                                    <canvas id="chart-hist-rates"></canvas>
+                                </div>
+                                <p class="calc2-disclaimer">Zdroj: ČBA Hypomonitor (realizované sazby)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nájem vs. Vlastní — jednoduchý rozklad -->
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+                            <h3 class="calc2-section-title calc2-section-title--compact" style="margin-bottom: 0;">
+                                Co se stane za <span class="kpi-delay-years">3</span> roky: nájem vs. vlastní
+                            </h3>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <span style="color: #a1a1aa; font-size: 0.8rem;">Váš nájem:</span>
+                                <strong id="val-rent-display" style="color: #fff; font-size: 0.85rem;">22 100 Kč</strong>
+                                <button id="btn-edit-rent" type="button" style="background:none; border:none; color:var(--accent-gold); cursor:pointer; padding:2px; display:flex; align-items:center;" title="Upravit nájem">
+                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="wrapper-edit-rent" style="display: none; margin-bottom: 12px; margin-top: 8px; background: rgba(0,0,0,0.2); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(220,169,58,0.2);">
+                            <div style="display: flex; gap: 8px; align-items: center;">
+                                <input type="number" id="input-custom-rent" style="width: 100px; height: 32px; font-size: 0.9rem; padding: 0 8px; background: #1a1a1a; border: 1px solid var(--accent-gold); color: #fff; border-radius: 4px;" placeholder="Částka">
+                                <span style="font-size: 0.8rem; color: #a1a1aa;">Kč/měs.</span>
+                                <span id="btn-reset-rent" style="font-size: 0.75rem; color: var(--accent-gold); cursor: pointer; text-decoration: underline; margin-left: auto;">Automaticky</span>
+                            </div>
+                        </div>
+                        <div id="rent-comparison-table" class="calc2-breakdown-table"></div>
+                    </div>
+
+                    <!-- Monerio exkluzivní sekce -->
+                    <div class="mort-monerio-section">
+                        <h3 class="mort-monerio-section__title">Proč řešit hypotéku s Monerio</h3>
+                        <div class="mort-monerio-items">
+                            <div class="mort-monerio-item">
+                                <div class="mort-monerio-item__icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 2L4 5v4c0 4.4 2.5 7.5 6 8.5 3.5-1 6-4.1 6-8.5V5l-6-3z"
+                                            stroke="var(--accent-gold)" stroke-width="1.5" fill="none" />
+                                        <path d="M7 10l2 2 4-4" stroke="var(--accent-gold)" stroke-width="1.5" />
+                                    </svg>
+                                </div>
+                                <div class="mort-monerio-item__text">
+                                    <strong>Přinášíme úroky lepší než obvyklé nabídky</strong>
+                                    <span>Skrze naši pozici vám zpravidla vyjednáme podmínky, díky kterým na splátkách
+                                        ušetříte (například <span class="mort-monerio-savings"
+                                            id="monerio-rate-savings">0 Kč</span> v rámci života hypotéky)</span>
+                                </div>
+                            </div>
+                            <div class="mort-monerio-item">
+                                <div class="mort-monerio-item__icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <circle cx="10" cy="10" r="7" stroke="var(--accent-gold)" stroke-width="1.5"
+                                            fill="none" />
+                                        <path d="M10 6v4l3 2" stroke="var(--accent-gold)" stroke-width="1.5" />
+                                    </svg>
+                                </div>
+                                <div class="mort-monerio-item__text">
+                                    <strong>Kompletní servis od A do Z</strong>
+                                    <span>Od výběru banky po podpis smlouvy</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mort-monerio-cta">
+                            <a href="/kontakt.html" class="calc2-cta">Chci hypotéku s lepší sazbou &rarr;</a>
+                            <p class="calc2-disclaimer">Personalizovaná analýza do 48 hodin od finanční architektky
+                                Silvie Žáčkové.</p>
+                        </div>
+                    </div>
+
+                    <div class="calc3-trust-signals">
+                        <div class="calc3-trust-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 1L2 4v4c0 3.5 2.5 6.4 6 7 3.5-.6 6-3.5 6-7V4L8 1z" stroke="currentColor"
+                                    stroke-width="1.5" fill="none" />
+                            </svg>
+                            <span>Vázaný zástupce FINVOX a.s.</span>
+                        </div>
+                        <div class="calc3-trust-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 12l3-7h6l3 7M5 5V3a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5"
+                                    fill="none" />
+                            </svg>
+                            <span>Skupina RENOMIA</span>
+                        </div>
+                        <div class="calc3-trust-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <rect x="2" y="3" width="12" height="10" rx="1" stroke="currentColor" stroke-width="1.5"
+                                    fill="none" />
+                                <path d="M5 7h6M5 10h4" stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            <span>Data dle ČNB a ČSÚ (duben 2026)</span>
+                        </div>
+                    </div>
+
+                </main>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- INSIGHT BOX -->
-    <section class="calc-insight-section">
-        <div class="container">
-            <div class="calc-insight-box">
-                <div class="calc-insight-header">
-                    <span class="calc-insight-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><line x1="9" y1="21" x2="15" y2="21"/></svg>
-                    </span>
-                    <h3>Co to znamená pro vás</h3>
-                </div>
-                <div class="calc-insight-text" id="insight-text"></div>
-                <a href="/kontakt.html" class="btn btn-primary" style="margin-top: 1.5rem;">Chci optimalizovat hypotéku →</a>
-            </div>
+        <!-- Tooltip popover -->
+        <div class="mort-tooltip" id="mort-tooltip" role="tooltip" aria-hidden="true">
+            <button class="mort-tooltip-close" aria-label="Zavřít">&times;</button>
+            <h4 class="mort-tooltip-title" id="mort-tooltip-title"></h4>
+            <p class="mort-tooltip-body" id="mort-tooltip-body"></p>
         </div>
-    </section>
-
-    <!-- NEXT CALCULATOR -->
-    <section class="calc-next">
-        <div class="container text-center">
-            <p style="color: var(--text-muted); margin-bottom: 1rem;">Vyzkoušejte také</p>
-            <a href="/kalkulacky-investice.html" class="btn btn-outline">Investiční kalkulačka →</a>
-        </div>
-    </section>
-
-    <!-- DISCLAIMER -->
-    <section style="padding: 2rem 0 4rem;">
-        <div class="container">
-            <p style="font-size: 0.8rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; text-align: center; line-height: 1.6;">
-                Výpočty jsou orientační a slouží jako informativní pomůcka. Skutečné podmínky hypotečního úvěru závisí na
-                individuálním posouzení bankou, bonitě klienta a aktuální nabídce. Pro přesnou kalkulaci kontaktujte
-                našeho poradce.
-            </p>
-        </div>
-    </section>
 
     </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
-                    <p style="font-size:0.9rem;">Architekt vašich financí v České republice.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Navigace</h4>
-                    <ul>
-                        <li><a href="/sluzby.html">Služby</a></li>
-                        <li><a href="/kalkulacky.html">Kalkulačky</a></li>
-                        <li><a href="/o-nas.html">O nás</a></li>
-                        <li><a href="/blog.html">Blog</a></li>
-                        <li><a href="/kontakt.html">Kontakt</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Pobočka</h4>
-                    <ul>
-                        <li><span style="color:var(--text-muted); font-size:0.9rem;">Heřmanická 1182/19<br />Praha, 182 00</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-compliance">
-                <p><strong>Legislativa (ČNB):</strong> Služby v oblastech pojištění, investic a úvěrů poskytuji jako
-                    vázaný zástupce zprostředkovatele FINVOX a.s., IČO: 03068102. Jsem zapsán(-a) v <a
-                        href="https://apl.cnb.cz/apljerrsdad/JERRS.WEB10.VIZITKA?p_lang=cz" target="_blank"
-                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">registru ČNB</a>.</p>
-                <p>Veškeré texty a informace na tomto webu mají výhradně edukativní charakter a nepředstavují závazné
-                    investiční doporučení ani obchodní nabídku ve smyslu zákona.</p>
-                <p>V případě sporu máte právo obrátit se na <a href="https://finarbitr.cz/" target="_blank"
-                        style="color: rgba(255,255,255,0.5); text-decoration: underline;">Finančního arbitra ČR</a>.</p>
-            </div>
-            <div class="footer-bottom">
-                <a href="/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
-                <a href="/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád</a>
-                <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: right; width: 100%;">&copy; 2026 MONERIO</p>
-            </div>
-        </div>
-    </footer>
-
-    <div class="cookie-banner" id="cookie-banner">
-        <div class="container cookie-inner">
-            <div class="cookie-text">
-                <p>Tento web používá cookies pro zajištění funkčnosti a analýzu návštěvnosti. Podrobnosti najdete v
-                    naší <a href="/gdpr-finvox.pdf" target="_blank">politice ochrany soukromí</a>.</p>
-            </div>
-            <div class="cookie-actions">
-                <button class="btn btn-outline btn-sm" id="cookie-reject">Odmítnout</button>
-                <button class="btn btn-primary btn-sm" id="cookie-accept">Přijmout vše</button>
-            </div>
-        </div>
-    </div>
-
-    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

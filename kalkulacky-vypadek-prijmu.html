@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monerio | Simulátor výpadku příjmů</title>
+    <meta name="description" content="Zjistěte, na jakou částku spadnete při invaliditě a zda vám státní podpora pokryje hypotéku a provoz rodiny." />
+</head>
+<body data-barba="wrapper">
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div class="page-transition-overlay" id="page-transition"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content fade-in-up">
+            <a href="/" class="logo-link">
+                <img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo">
+            </a>
+            <nav class="nav-links d-none-mobile">
+                <a href="/sluzby.html">Služby</a>
+                <a href="/kalkulacky.html">Kalkulačky</a>
+                <a href="/o-nas.html">O nás</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/kontakt.html">Kontakt</a>
+            </nav>
+            <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/sluzby.html" class="mobile-link">Služby</a>
+        <a href="/kalkulacky.html" class="mobile-link">Kalkulačky</a>
+        <a href="/o-nas.html" class="mobile-link">O nás</a>
+        <a href="/blog.html" class="mobile-link">Blog</a>
+        <a href="/kontakt.html" class="mobile-link">Kontakt</a>
+        <a href="/kontakt.html" class="btn btn-primary mt-4" style="width: 100%;">Domluvit konzultaci</a>
+    </div>
+
+    <main data-barba="container" data-barba-namespace="kalkulacka">
+        <section class="calc2-container">
+            <a href="/kalkulacky.html" class="calc2-back-link">&larr; Zpět na přehled kalkulaček</a>
+
+            <div style="margin-bottom: 40px; text-align: center;">
+                <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 16px;">Simulátor výpadku příjmů rodiny</h1>
+                <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">
+                    Slyšíte ze všech stran varování před slovy "invalidní důchod"? <br>
+                    Na datech MPSV si spočítejte ten drtivý propad, ať se raději pro rodinu včas pojistíte štítem, který dává smysl.
+                </p>
+            </div>
+
+            <div class="calc2-layout">
+
+                <!-- LEVÝ PANEL: VSTUPY A OVLÁDÁNÍ -->
+                <aside class="calc2-sidebar">
+                    <h3 class="calc2-section-title">Profil domácnosti</h3>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Můj průměrný čistý plat
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Čistá mzda</div>
+                                    Čistá mzda, kterou každý měsíc dostanete na účet. Slouží k dopočtu hrubé mzdy a stanovení krutých redukčních hranic státu.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-income">45 000 Kč</div>
+                        <input type="range" id="slider-income" class="calc2-range" min="15000" max="150000" step="1000" value="45000">
+                    </div>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Fixní rodinné výdaje (hypotéka, složenky)
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Životní minimum rodiny</div>
+                                    Vaše měsíční částka absolutního minima domácnosti – o kolik v žádném případě nesmíte přijít, jinak hrozí dluhové pasti.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-expenses">30 000 Kč</div>
+                        <input type="range" id="slider-expenses" class="calc2-range" min="10000" max="100000" step="1000" value="30000">
+                    </div>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Můj věk
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Věk pojištěnce</div>
+                                    Slouží k odhadu počtu odsloužených let pojištění (věk − 18). Ovlivňuje procentní výměru důchodu.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-age">35 let</div>
+                        <input type="range" id="slider-age" class="calc2-range" min="18" max="65" step="1" value="35">
+                    </div>
+
+                    <div class="calc2-radio-group" style="padding-top: 0; margin-top: 16px; border: none;">
+                        <h4 class="calc2-radio-group__title">Zajímá mě propad příjmu při...</h4>
+                        <div class="calc2-radio-group__options">
+                            <label class="calc2-radio-option">
+                                <input type="radio" name="event-type" value="sickness">
+                                <div>
+                                    <span class="calc2-radio-option__label">Kratší nemoc (např. 1 měsíc)</span>
+                                    <span class="calc2-radio-option__desc">Náhrada v podobě nemocenské dávky</span>
+                                </div>
+                            </label>
+
+                            <label class="calc2-radio-option">
+                                <input type="radio" name="event-type" value="disability" checked>
+                                <div>
+                                    <span class="calc2-radio-option__label">Invaliditě (trvalý stav)</span>
+                                    <span class="calc2-radio-option__desc">Invalidní důchod ze strany státu</span>
+                                </div>
+                            </label>
+
+                            <label class="calc2-radio-option">
+                                <input type="radio" name="event-type" value="death">
+                                <div>
+                                    <span class="calc2-radio-option__label calc2-radio-option__label--danger">Úmrtí a ztrátě živitele</span>
+                                    <span class="calc2-radio-option__desc">Vdovský a sirotčí důchod pro rodinu</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="wrapper-disability" style="margin: 24px 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+                        <h4 class="calc2-radio-group__title">Stupeň očekávané invalidity</h4>
+                        <div class="calc2-radio-group__options">
+                            <label class="calc2-radio-option">
+                                <input type="radio" name="disability-degree" value="1">
+                                <div>
+                                    <span class="calc2-radio-option__label">Invalidita I. stupně</span>
+                                    <span class="calc2-radio-option__desc">Pokles prac. schopnosti o 35-49 %</span>
+                                </div>
+                            </label>
+                            <label class="calc2-radio-option">
+                                <input type="radio" name="disability-degree" value="2">
+                                <div>
+                                    <span class="calc2-radio-option__label">Invalidita II. stupně</span>
+                                    <span class="calc2-radio-option__desc">Pokles prac. schopnosti o 50-69 %</span>
+                                </div>
+                            </label>
+                            <label class="calc2-radio-option">
+                                <input type="radio" name="disability-degree" value="3" checked>
+                                <div>
+                                    <span class="calc2-radio-option__label calc2-radio-option__label--danger">Invalidita III. stupně</span>
+                                    <span class="calc2-radio-option__desc">Pokles o 70 a více % (těžký výpadek)</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="wrapper-death" style="margin: 24px 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: none;">
+                        <div class="calc2-input-group">
+                            <label class="calc2-label">Počet nezaopatřených dětí
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Počet dětí a sirotčí důchod</div>
+                                        Pro každé dítě se přičítá jeden sirotčí důchod, což vaši rodinu může výrazně ochránit.
+                                    </div>
+                                </span>
+                            </label>
+                            <div class="calc2-value-display" id="val-children">0 dětí</div>
+                            <input type="range" id="slider-children" class="calc2-range" min="0" max="5" step="1" value="0">
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- PRAVÝ PANEL: VÝSLEDKY A GRAFY -->
+                <main class="calc2-main">
+
+                    <h3 class="calc2-section-title calc2-section-title--compact">Zákonná realita a chybějící prostředky</h3>
+                    <div class="calc2-kpi-grid">
+                        <div class="calc2-kpi-card" style="border-top: 3px solid rgba(255,255,255,0.3);">
+                            <span class="calc2-kpi-label" id="kpi-state-label">Státní dotace (Odhad)
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content" id="kpi-state-tooltip">
+                                        <div class="calc2-tooltip-title">Měsíční státní dávky</div>
+                                        Částka ovlivněna redukčními hranicemi MPSV 2026. Málokomu stát zaplatí potřebný standart rodiny.
+                                    </div>
+                                </span>
+                            </span>
+                            <div class="calc2-kpi-val neutral" id="kpi-state-pension">0 Kč</div>
+                            <div class="calc2-kpi-sublabel">Měsíčně zasláno státem</div>
+                        </div>
+
+                        <div class="calc2-kpi-card" style="background: rgba(255,76,76,0.04); border-top: 3px solid #ff4c4c;">
+                            <span class="calc2-kpi-label">Rodinná finanční propast
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Zůstatek rozpočtu</div>
+                                        Zda vám zaslaný invalidní důchod od státu zaplatí vůbec hypotéku a složenky, na které jste zvyklí. Záporné číslo znamená rodinu v pasti.
+                                    </div>
+                                </span>
+                            </span>
+                            <div class="calc2-kpi-val negative" id="kpi-gap">0 Kč</div>
+                            <div class="calc2-kpi-sublabel">Měsíční deficit vůči fixním výdajům</div>
+                        </div>
+
+                        <div class="calc2-kpi-card" style="border-top: 3px solid var(--accent-gold);">
+                            <span class="calc2-kpi-label">Náhradový poměr</span>
+                            <div class="calc2-kpi-val" id="kpi-replacement" style="color: var(--accent-gold);">0 %</div>
+                            <div class="calc2-kpi-sublabel">Kolik z platu stát nahradí</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 24px;">
+                        <h3 class="calc2-section-title">Měsíční bilance domácnosti: Účet zůstane krvácet</h3>
+                        <div class="calc2-chart-container" style="height: 380px;">
+                            <canvas id="chart-disability"></canvas>
+                        </div>
+                        <p class="calc2-disclaimer">
+                            Model vychází z vámi zadaného věku (odsloužené roky = věk − 18) a redukčních hranic MPSV platných pro rok 2026.
+                        </p>
+                    </div>
+
+                    <a href="/kontakt.html" class="calc2-cta calc2-cta--gold">Navrhnout pro rodinu ochranný finanční štít &rarr;</a>
+
+                </main>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container fade-in-up">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
+                    <p style="font-size:0.9rem;">Architekt vašich financí v České republice.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="/sluzby.html">Služby</a></li>
+                        <li><a href="/kalkulacky.html">Kalkulačky</a></li>
+                        <li><a href="/o-nas.html">O nás</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: center; width: 100%;">&copy; 2026 MONERIO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

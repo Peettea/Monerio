@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monerio | Rentgen výplaty a daňů</title>
+    <meta name="description" content="Zjistěte, kolik si z vaší reálné hodnoty práce nespravedlivě ukrojí stát formou odvodů a skrytých firemních daní." />
+</head>
+<body data-barba="wrapper">
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div class="page-transition-overlay" id="page-transition"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content fade-in-up">
+            <a href="/" class="logo-link">
+                <img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo">
+            </a>
+            <nav class="nav-links d-none-mobile">
+                <a href="/sluzby.html">Služby</a>
+                <a href="/kalkulacky.html">Kalkulačky</a>
+                <a href="/o-nas.html">O nás</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/kontakt.html">Kontakt</a>
+            </nav>
+            <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="/sluzby.html" class="mobile-link">Služby</a>
+        <a href="/kalkulacky.html" class="mobile-link">Kalkulačky</a>
+        <a href="/o-nas.html" class="mobile-link">O nás</a>
+        <a href="/blog.html" class="mobile-link">Blog</a>
+        <a href="/kontakt.html" class="mobile-link">Kontakt</a>
+        <a href="/kontakt.html" class="btn btn-primary mt-4" style="width: 100%;">Domluvit konzultaci</a>
+    </div>
+
+    <main data-barba="container" data-barba-namespace="kalkulacka">
+        <section class="calc2-container">
+            <a href="/kalkulacky.html" class="calc2-back-link">&larr; Zpět na přehled kalkulaček</a>
+
+            <div style="margin-bottom: 40px; text-align: center;">
+                <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 16px;">Rentgen státních odvodů z výplaty</h1>
+                <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">
+                    Standardní kalkulačky vám ukážou hezky znějící hrubou mzdu. My vám ukážeme skrytou pravdu rovnou na stůl – tu gigantickou černou díru, do které padá vaše reálná tržní hodnota, kterou musela vaše firma zaplatit.
+                </p>
+            </div>
+
+            <div class="calc2-layout">
+
+                <!-- LEVÝ PANEL: VSTUPY -->
+                <aside class="calc2-sidebar">
+                    <!-- Přepínač režimu -->
+                    <div class="calc2-mode-switch">
+                        <button class="calc2-mode-btn calc2-mode-btn--active" id="mode-simple">Jednoduchý</button>
+                        <button class="calc2-mode-btn" id="mode-detail">Podrobný</button>
+                    </div>
+
+                    <h3 class="calc2-section-title">Sjednaná pracovní smlouva</h3>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Hrubá měsíční mzda
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Hrubá mzda</div>
+                                    Částka, o které si na pohovoru myslíte, že je celou hodnotou vaší práce. Ne, je to pouze kompromis, aby firma měla peníze na skryté státní odvody za vás.
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-gross">45 000 Kč</div>
+                        <input type="range" id="slider-gross" class="calc2-range" min="5000" max="250000" step="1000" value="45000">
+                    </div>
+
+                    <div class="calc2-input-group">
+                        <label class="calc2-label">Počet vyživovaných dětí
+                            <span class="calc2-tooltip-icon">i
+                                <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Daňové slevy na děti</div>
+                                    Za 1. dítě vrací stát na úlevě tisícovku, za druhé téměř dvě...
+                                </div>
+                            </span>
+                        </label>
+                        <div class="calc2-value-display" id="val-children">0 dětí</div>
+                        <input type="range" id="slider-children" class="calc2-range" min="0" max="5" step="1" value="0">
+                    </div>
+
+                    <!-- PODROBNÝ REŽIM -->
+                    <div id="detail-panel" class="calc2-detail-panel">
+
+                        <h4>Typ pracovního poměru</h4>
+                        <select class="calc2-select" id="select-contract">
+                            <option value="hpp">Hlavní pracovní poměr (HPP)</option>
+                            <option value="dpp">Dohoda o provedení práce (DPP)</option>
+                            <option value="dpc">Dohoda o pracovní činnosti (DPČ)</option>
+                        </select>
+                        <div id="contract-note" class="calc2-contract-note" style="display:none;"></div>
+
+                        <h4>Osobní slevy na dani</h4>
+
+                        <label class="calc2-toggle">
+                            <input type="checkbox" id="toggle-spouse">
+                            <div class="calc2-toggle-box"></div>
+                            <span>Sleva na manželku/manžela
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Daňová sleva na manžela/ku</div>
+                                        Pokud má váš partner příjem nižší než 68 000 Kč za rok, máte nárok na slevu 2 070 Kč měsíčně.
+                                    </div>
+                                </span>
+                            </span>
+                        </label>
+
+                        <label class="calc2-toggle">
+                            <input type="checkbox" id="toggle-student">
+                            <div class="calc2-toggle-box"></div>
+                            <span>Jsem student</span>
+                        </label>
+
+                        <div class="calc2-input-group">
+                            <label class="calc2-label">Stupeň invalidity</label>
+                            <select class="calc2-select" id="select-disability">
+                                <option value="0">Žádná</option>
+                                <option value="1">I. stupeň (+210 Kč)</option>
+                                <option value="2">II. stupeň (+420 Kč)</option>
+                                <option value="3">III. stupeň (+1 345 Kč)</option>
+                            </select>
+                        </div>
+
+                        <h4>Nezdanitelné části základu daně (roční)</h4>
+
+                        <div class="calc2-input-group">
+                            <label class="calc2-label">Úroky z hypotéky
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Odpočet úroků</div>
+                                        Z částky, kterou pošlete bance pouze na zaplacení úroků, vám stát dokáže vrátit 15 % zpět. Podmínkou je, že v nemovitosti bydlíte.
+                                    </div>
+                                </span>
+                            </label>
+                            <div class="calc2-value-display" id="val-mortgage">0 Kč/rok</div>
+                            <input type="range" id="slider-mortgage" class="calc2-range" min="0" max="150000" step="5000" value="0">
+                        </div>
+
+                        <div class="calc2-input-group">
+                            <label class="calc2-label">Životní pojištění
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Úleva za odpovědnost</div>
+                                        Pokud si platíte životní pojištění s investiční nebo rezervotvornou složkou, stát vás za to odmění daňovým odpočtem až z částky 48 000 Kč ročně.
+                                    </div>
+                                </span>
+                            </label>
+                            <div class="calc2-value-display" id="val-lifeins">0 Kč/rok</div>
+                            <input type="range" id="slider-lifeins" class="calc2-range" min="0" max="24000" step="1000" value="0">
+                        </div>
+
+                        <div class="calc2-input-group">
+                            <label class="calc2-label">Spoření na stáří (Investice apod.)
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Státní dotace na investice</div>
+                                        Stát motivuje ty, kteří nechtějí skončit v důchodu pod mostem, štědrou dotací. Patří sem speciální investiční portfolia (tzv. DIP) a penzijní spoření (tzv. DPS). Lze odepsat dalších 48 000 Kč.
+                                    </div>
+                                </span>
+                            </label>
+                            <div class="calc2-value-display" id="val-pension-ded">0 Kč/rok</div>
+                            <input type="range" id="slider-pension-ded" class="calc2-range" min="0" max="48000" step="1000" value="0">
+                        </div>
+
+                        <div class="calc2-input-group">
+                            <label class="calc2-label">Charitativní dary
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Darování neziskovkám</div>
+                                        Peníze (nebo hodnota krve), které pošlete na charitu, se zcela odečtou od vašeho daňového základu – tedy se z nich vůbec nebude počítat daň.
+                                    </div>
+                                </span>
+                            </label>
+                            <div class="calc2-value-display" id="val-donations">0 Kč/rok</div>
+                            <input type="range" id="slider-donations" class="calc2-range" min="0" max="50000" step="1000" value="0">
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- PRAVÝ PANEL: VÝSLEDKY -->
+                <main class="calc2-main">
+
+                    <div class="calc2-main-header">
+                        <h3 class="calc2-section-title calc2-section-title--compact">Tvrdá daňová realita (Rok 2026)</h3>
+                        <div class="calc2-main-header__controls">
+                            <div class="calc2-eff-rate-badge">Efektivní zdanění: <span id="kpi-eff-rate">0 %</span></div>
+                            <div class="calc2-period-switch">
+                                <button class="calc2-mode-btn calc2-mode-btn--active" id="period-monthly">Měsíc</button>
+                                <button class="calc2-mode-btn" id="period-yearly">Rok</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc2-kpi-grid">
+                        <div class="calc2-kpi-card" style="background: rgba(212, 175, 55, 0.05); border-top: 3px solid var(--accent-gold);">
+                            <span class="calc2-kpi-label">Celkové náklady zaměstnavatele
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Superhrubá mzda</div>
+                                        Tzv. superhrubá mzda — celková částka, kterou firma musí vynaložit na vaši pozici. Zahrnuje hrubou mzdu + povinné odvody zaměstnavatele (sociální 24,8 % + zdravotní 9 %).
+                                    </div>
+                                </span>
+                            </span>
+                            <div class="calc2-kpi-val gold" id="kpi-supergross">0 Kč</div>
+                            <div class="calc2-kpi-sublabel">Tolik firmu stojíte ve skutečnosti</div>
+                        </div>
+
+                        <div class="calc2-kpi-card" style="background: rgba(255,76,76,0.04); border-top: 3px solid #ff4c4c;">
+                            <span class="calc2-kpi-label">Celkem odvedeno státu
+                                <span class="calc2-tooltip-icon">i
+                                    <div class="calc2-tooltip-content">
+                                        <div class="calc2-tooltip-title">Míra zdanění</div>
+                                        Součet všech odvodů — sociální a zdravotní pojištění (vaše i zaměstnavatele) plus daň z příjmu. Tato částka jde na sociální správu, zdravotní pojišťovnu a finanční úřad.
+                                    </div>
+                                </span>
+                            </span>
+                            <div class="calc2-kpi-val negative" id="kpi-taken">0 Kč</div>
+                            <div class="calc2-kpi-sublabel">Odvody + daně dohromady</div>
+                        </div>
+
+                        <div class="calc2-kpi-card" style="background: rgba(76, 175, 80, 0.05); border-top: 3px solid #4CAF50;">
+                            <span class="calc2-kpi-label">Čistá mzda na účet</span>
+                            <div class="calc2-kpi-val positive" id="kpi-net">0 Kč</div>
+                            <div class="calc2-kpi-sublabel">Co vám přistane na účtu</div>
+                        </div>
+                    </div>
+
+                    <!-- Breakdown bar -->
+                    <div>
+                        <h3 class="calc2-section-title calc2-section-title--compact">Kam mizí vaše hodnota</h3>
+                        <div id="wage-breakdown-bar" class="wage-breakdown-bar"></div>
+                    </div>
+
+                    <!-- Rozkladová tabulka -->
+                    <div>
+                        <h3 class="calc2-section-title calc2-section-title--compact">Rozklad mzdy od firmy po účet</h3>
+                        <div id="wage-detail-table" class="calc2-breakdown-table"></div>
+                        <p class="calc2-disclaimer">
+                            Výpočet zohledňuje legislativní sazby 2026 včetně skrytých odvodů zaměstnavatele. Kliknutím na daň z příjmu rozbalíte detail slev.
+                        </p>
+                    </div>
+
+                    <a href="/kalkulacky-investice.html" class="calc2-cta calc2-cta--ghost">Chci to, co mi zbylo, chytře rozmnožit trhem &rarr;</a>
+
+                </main>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container fade-in-up">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
+                    <p style="font-size:0.9rem;">Architekt vašich financí v České republice.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="/sluzby.html">Služby</a></li>
+                        <li><a href="/kalkulacky.html">Kalkulačky</a></li>
+                        <li><a href="/o-nas.html">O nás</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="/kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: center; width: 100%;">&copy; 2026 MONERIO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
