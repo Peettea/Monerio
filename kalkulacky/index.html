@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monerio | Interaktivní kalkulačky</title>
     <meta name="description" content="Spočítejte si přesnou cenu za odkládání důležitých finančních rozhodnutí. Data dle ČNB a ČSÚ." />
@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..500&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 
 <body data-barba="wrapper">
@@ -22,16 +22,16 @@
     <header class="navbar">
         <div class="container nav-content fade-in-up">
             <a href="/" class="logo-link">
-                <img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo">
+                <img src="/assets/logo-inverse.svg" alt="Monerio Logo" class="nav-logo">
             </a>
             <nav class="nav-links d-none-mobile">
-                <a href="/sluzby.html">Služby</a>
-                <a href="/kalkulacky.html" class="active">Kalkulačky</a>
-                <a href="/o-nas.html">O nás</a>
-                <a href="/blog.html">Blog</a>
-                <a href="/kontakt.html">Kontakt</a>
+                <a href="/sluzby">Služby</a>
+                <a href="/kalkulacky/" class="active">Kalkulačky</a>
+                <a href="/o-nas">O nás</a>
+                <a href="/blog/">Blog</a>
+                <a href="/kontakt">Kontakt</a>
             </nav>
-            <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+            <a href="/kontakt" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
 
             <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
                 <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
@@ -44,16 +44,16 @@
     </header>
 
     <div class="mobile-menu" id="mobile-menu">
-        <a href="/sluzby.html" class="mobile-link">Služby</a>
-        <a href="/kalkulacky.html" class="mobile-link">Kalkulačky</a>
-        <a href="/o-nas.html" class="mobile-link">O nás</a>
-        <a href="/blog.html" class="mobile-link">Blog</a>
-        <a href="/kontakt.html" class="mobile-link">Kontakt</a>
-        <a href="/kontakt.html" class="btn btn-primary mt-4" style="width: 100%;">Domluvit konzultaci</a>
+        <a href="/sluzby" class="mobile-link">Služby</a>
+        <a href="/kalkulacky/" class="mobile-link">Kalkulačky</a>
+        <a href="/o-nas" class="mobile-link">O nás</a>
+        <a href="/blog/" class="mobile-link">Blog</a>
+        <a href="/kontakt" class="mobile-link">Kontakt</a>
+        <a href="/kontakt" class="btn btn-primary mt-4" style="width: 100%;">Domluvit konzultaci</a>
     </div>
 
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
 
     <main data-barba="container" data-barba-namespace="kalkulacka">
         <section class="calc2-container calc3-hub-wrapper">
@@ -64,28 +64,28 @@
             </header>
 
             <div class="calc2-hub-grid calc3-hub-grid-wrapper">
-                <a href="/kalkulacky-hypoteka.html" class="calc2-card">
+                <a href="/kalkulacky/hypoteka" class="calc2-card">
                     <h2 class="calc2-card-title">Hypoteční kalkulačka</h2>
                     <p class="calc3-card-description">Spočítejte si měsíční splátku hypotéky a porovnejte ji s placením nájmu. Zjistíte částku potřebnou pro vlastní bydlení a specialisté Monerio vám následně pomohou vyjednat ty nejvýhodnější podmínky na trhu.</p>
 
                     <span class="calc3-card-link calc3-card-link--gold">Spustit hypoteční kalkulačku &rarr;</span>
                 </a>
 
-                <a href="/kalkulacky-investice.html" class="calc2-card">
+                <a href="/kalkulacky/investice" class="calc2-card">
                     <h2 class="calc2-card-title">Investiční kalkulačka</h2>
                     <p class="calc3-card-description">Spočítejte si, s jakou rentou můžete počítat ve stáří. Odhalíte rozdíl mezi vaším současným příjmem a budoucím státním důchodem a Monerio vám navrhne investiční plán, který tuto mezeru vykryje.</p>
 
                     <span class="calc3-card-link calc3-card-link--blue">Spustit investiční kalkulačku &rarr;</span>
                 </a>
 
-                <a href="/kalkulacky-vypadek-prijmu.html" class="calc2-card">
+                <a href="/kalkulacky/vypadek-prijmu" class="calc2-card">
                     <h2 class="calc2-card-title">Kalkulačka invalidních a pozůstalostních důchodů</h2>
                     <p class="calc3-card-description">Spočítejte si, jaký invalidní nebo pozůstalostní důchod by vám vyplatil stát. Zjistíte přesný deficit vůči výdajům rodiny a naši poradci v Monerio vám pomohou nastavit ochranný finanční štít pro případ výpadku.</p>
 
                     <span class="calc3-card-link" style="color: #ff4c4c; border-color: rgba(255, 76, 76, 0.3);">Spustit kalkulačku důchodů &rarr;</span>
                 </a>
 
-                <a href="/kalkulacky-rentgen-mzdy.html" class="calc2-card">
+                <a href="/kalkulacky/rentgen-mzdy" class="calc2-card">
                     <h2 class="calc2-card-title">Kalkulačka čisté mzdy</h2>
                     <p class="calc3-card-description">Spočítejte si vaši předpokládanou čistou mzdu pro rok 2026. Odhalíte tak skutečné odvody odváděné státem a poradci Monerio vám pak ukáží možnosti, jak tyto odvody začít chytře optimalizovat.</p>
 

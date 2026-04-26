@@ -4,8 +4,15 @@
   "redirects": [
     {
       "source": "/kalkulacky-inflace",
-      "destination": "/kalkulacky-investice",
+      "destination": "/kalkulacky/investice",
       "permanent": true
-    }
+    },
+    { "source": "/kalkulacky-hypoteka", "destination": "/kalkulacky/hypoteka", "permanent": true },
+    { "source": "/kalkulacky-investice", "destination": "/kalkulacky/investice", "permanent": true },
+    { "source": "/kalkulacky-rentgen-mzdy", "destination": "/kalkulacky/rentgen-mzdy", "permanent": true },
+    { "source": "/kalkulacky-vypadek-prijmu", "destination": "/kalkulacky/vypadek-prijmu", "permanent": true },
+    { "source": "/pojisteni-majetku", "destination": "/blog/pojisteni-majetku", "permanent": true },
+    { "source": "/pruvodce-hypotekami", "destination": "/blog/pruvodce-hypotekami", "permanent": true },
+    { "source": "/investovani-pro-zacatecniky", "destination": "/blog/investovani-pro-zacatecniky", "permanent": true }
   ]
 }

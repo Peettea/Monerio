@@ -66,10 +66,12 @@
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.1) transparent transparent transparent;
 }
-.calc2-tooltip-icon:hover .calc2-tooltip-content {
+.calc2-tooltip-icon:hover .calc2-tooltip-content,
+.calc2-tooltip-icon--active .calc2-tooltip-content {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
 }
 @media (max-width: 768px) {
     .calc2-tooltip-content {
@@ -82,7 +84,8 @@
         right: 24px;
         transform: none;
     }
-    .calc2-tooltip-icon:hover .calc2-tooltip-content {
+    .calc2-tooltip-icon:hover .calc2-tooltip-content,
+    .calc2-tooltip-icon--active .calc2-tooltip-content {
         transform: translateY(0);
     }
 }

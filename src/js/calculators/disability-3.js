@@ -1,6 +1,7 @@
 import Chart from 'chart.js/auto';
 import { marketData, formatCurrency } from './market-data.js';
 import { estimateGrossFromNet } from './wage-3.js';
+import { chartColors } from './chart-theme-2.js';
 
 export function initDisabilityStory() {
     const sliderIncome = document.getElementById('slider-income');
@@ -214,7 +215,7 @@ export function initDisabilityStory() {
                         {
                             label: 'Státní důchod a realita',
                             data: [pension],
-                            backgroundColor: '#ff4c4c',
+                            backgroundColor: chartColors.red.solid,
                             borderColor: 'transparent',
                             borderRadius: 4,
                             barPercentage: 0.9,
@@ -223,7 +224,7 @@ export function initDisabilityStory() {
                         {
                             label: 'Fixní potřebné výdaje',
                             data: [expenses],
-                            backgroundColor: 'var(--accent-gold)',
+                            backgroundColor: chartColors.gold.solid,
                             borderColor: 'transparent',
                             borderRadius: 4,
                             barPercentage: 0.9,

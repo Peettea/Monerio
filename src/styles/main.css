@@ -1465,337 +1465,6 @@ section {
 }
 
 
-/* ============================================
-   CALCULATOR 2.0 — DETAIL PAGES
-   ============================================ */
-
-/* Hero */
-.calc-hero {
-  padding-top: 140px;
-  padding-bottom: 40px;
-  background: radial-gradient(circle at 50% 30%, rgba(0, 85, 164, 0.06) 0%, rgba(11, 32, 70, 0.3) 40%, #060913 80%);
-}
-
-.calc-hero h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.calc-hero-desc {
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin-top: 0.75rem;
-}
-
-/* Sub-navigation */
-.calc-subnav {
-  position: sticky;
-  top: 72px;
-  z-index: 90;
-  background: rgba(6, 9, 19, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 0;
-}
-
-.calc-subnav .container {
-  display: flex;
-  gap: 0.25rem;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.calc-subnav .container::-webkit-scrollbar {
-  display: none;
-}
-
-.calc-subnav-item {
-  padding: 1rem 1.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-decoration: none;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: var(--transition-base);
-}
-
-.calc-subnav-item:hover {
-  color: var(--text-main);
-}
-
-.calc-subnav-item.active {
-  color: var(--accent-gold);
-  border-bottom-color: var(--accent-gold);
-}
-
-
-/* Insight box */
-.calc-insight-section {
-  padding: 0 0 3rem;
-}
-
-.calc-insight-box {
-  background: rgba(11, 17, 32, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-left: 3px solid var(--accent-gold);
-  border-radius: 0 12px 12px 0;
-  padding: 2.5rem;
-  max-width: 800px;
-}
-
-.calc-insight-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
-}
-
-.calc-insight-icon {
-  color: var(--accent-gold);
-  flex-shrink: 0;
-}
-
-.calc-insight-header h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.calc-insight-text {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-}
-
-.calc-insight-text strong {
-  color: var(--text-main);
-  font-weight: 600;
-}
-
-.calc-insight-text .text-warning {
-  color: var(--color-danger);
-}
-
-.calc-insight-text .text-positive {
-  color: var(--color-success);
-}
-
-/* --- Dashboard Insight Box (glass variant in main area) --- */
-.dashboard-main .calc-insight-box {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-left: 3px solid rgba(255, 255, 255, 0.1);
-}
-
-.calc-insight-icon--danger {
-  background: rgba(255, 77, 79, 0.1);
-  border-radius: 8px;
-  padding: 8px;
-}
-
-.calc-insight-icon--gold {
-  background: rgba(212, 175, 55, 0.1);
-  border-radius: 8px;
-  padding: 8px;
-}
-
-/* --- Dashboard Header (sidebar compact) --- */
-.dashboard-sidebar .dashboard-header {
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
-
-.dashboard-sidebar .dashboard-header h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0;
-}
-
-.dashboard-sidebar .dashboard-header p {
-  font-size: 0.9rem;
-  margin-top: 4px;
-}
-
-/* --- Target / Dream Input (gold-accented) --- */
-.premium-range-group--target {
-  margin-top: 2.5rem;
-}
-
-.premium-range-group--target > .premium-range-header label {
-  color: var(--accent-gold);
-}
-
-.premium-range-group--target .premium-range-input-wrap {
-  border-color: rgba(212, 175, 55, 0.3);
-}
-
-.premium-range-group--target .premium-range-value {
-  color: var(--accent-gold);
-}
-
-/* --- Danger Input (inflation rate, red-accented) --- */
-.premium-range-input-wrap--danger {
-  border-color: rgba(255, 77, 79, 0.4);
-}
-
-.premium-range-value--danger {
-  color: var(--color-danger) !important;
-}
-
-/* --- Smaller dash-value variant --- */
-.dash-value--sm {
-  font-size: 1.8rem;
-  padding-top: 0.4rem;
-}
-
-/* --- Range hint text --- */
-.premium-range-hint {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 6px;
-}
-
-/* --- Info box small note variant --- */
-.sidebar-info-box__note--sm {
-  margin-top: 0.5rem;
-  font-size: 0.72rem;
-  opacity: 0.7;
-}
-
-/* --- Footer for calculator pages --- */
-.footer--calc {
-  margin-top: 0;
-}
-
-/* --- Hero result card --- */
-.dash-result-card--hero {
-  grid-column: 1 / -1;
-  background: rgba(11, 17, 32, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem;
-}
-
-.dash-result-card--hero .dash-value {
-  font-size: 2.8rem;
-}
-
-.dash-result-card--hero .dash-label {
-  font-size: 0.85rem;
-}
-
-/* --- CTA Benefits (inline list below button) --- */
-.cta-benefits {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem 1.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0 0;
-}
-
-.cta-benefits li {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* --- Cross-calculator link --- */
-.calc-cross-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.2rem;
-  background: rgba(0, 85, 164, 0.08);
-  border: 1px solid rgba(0, 85, 164, 0.15);
-  border-radius: 8px;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.calc-cross-link:hover {
-  background: rgba(0, 85, 164, 0.15);
-  border-color: rgba(0, 85, 164, 0.3);
-  color: var(--text-main);
-}
-
-.calc-cross-link svg {
-  flex-shrink: 0;
-  opacity: 0.6;
-}
-
-/* --- Native details/summary for FAQ & Methodology --- */
-.calc-faq details {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.calc-faq summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem 0;
-  cursor: pointer;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  font-family: var(--font-heading);
-  transition: color 0.2s;
-  list-style: none;
-}
-
-.calc-faq summary::-webkit-details-marker { display: none; }
-
-.calc-faq summary:hover {
-  color: var(--text-main);
-}
-
-.calc-faq summary svg {
-  flex-shrink: 0;
-  transition: transform 0.3s;
-  opacity: 0.4;
-}
-
-.calc-faq details[open] summary svg {
-  transform: rotate(180deg);
-}
-
-.calc-faq details .calc-faq__answer {
-  max-height: none;
-  overflow: visible;
-}
-
-.calc-methodology details summary {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: color 0.2s;
-  list-style: none;
-}
-
-.calc-methodology details summary::-webkit-details-marker { display: none; }
-
-.calc-methodology details summary:hover {
-  color: var(--text-secondary);
-}
-
-.calc-methodology details summary svg {
-  transition: transform 0.3s;
-}
-
-.calc-methodology details[open] summary svg {
-  transform: rotate(180deg);
-}
 
 /* =========================================
    CALCULATOR UTILITY CLASSES (replacing inline styles)
@@ -2393,7 +2062,7 @@ section {
 }
 
 .calc2-kpi-val.negative { color: #ff4c4c; } /* Red for Cost of inaction */
-.calc2-kpi-val.positive { color: var(--success, #4caf50); }
+.calc2-kpi-val.positive { color: var(--color-success); }
 .calc2-kpi-val.neutral { color: white; }
 .calc2-kpi-val.gold { color: var(--primary); }
 
@@ -2486,6 +2155,42 @@ section {
     border-color: var(--primary);
     background: rgba(212,175,55,0.1);
     color: var(--primary);
+}
+
+/* ── Accordion (sidebar sections) ── */
+.calc2-accordion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+}
+.calc2-accordion-trigger:hover .calc2-accordion-hint {
+    color: var(--accent-gold);
+}
+.calc2-accordion-hint {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.2s;
+}
+.calc2-accordion-arrow {
+    transition: transform 0.3s ease;
+    color: rgba(255,255,255,0.4);
+}
+.calc2-accordion-trigger[aria-expanded="true"] .calc2-accordion-arrow {
+    transform: rotate(180deg);
+}
+.calc2-accordion-body {
+    display: none;
+    padding-bottom: 8px;
+}
+.calc2-accordion-body--open {
+    display: block;
 }
 
 /* ── Detail panel (collapsible) ── */
@@ -2808,7 +2513,7 @@ section {
 
 .bdt-row--result {
     font-size: 1.05rem;
-    color: #4CAF50;
+    color: var(--color-success);
     border-top: 1px solid rgba(255,255,255,0.08);
     align-items: center;
     margin-top: 4px;
@@ -2873,7 +2578,7 @@ section {
     color: #ff4c4c;
 }
 .bdt-val--positive {
-    color: #4CAF50;
+    color: var(--color-success);
 }
 
 /* ── Contract type note ── */

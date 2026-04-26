@@ -174,7 +174,7 @@ export function initInvestmentStory() {
 
         animateValue(kpiStatePension, expectedPension);
         animateValue(kpiGap, Math.max(0, incomeGap), '- ');
-        if (kpiReplacement) kpiReplacement.textContent = `${replacementRatio} %`;
+        if (kpiReplacement) kpiReplacement.textContent = replacementRatio;
 
         // ── 2. Státní podpora (DPS/DIP) ───────────────
         let stateContribYearly = 0;
@@ -288,9 +288,11 @@ export function initInvestmentStory() {
             dataNow.push(Math.round(computeGrowth(initialSaved, totalEngineMonthly, y, returnRate)));
         }
 
-        const datasets = [
-            {
-                label: 'S vaší vyčkávací prodlevou',
+        const datasets = [];
+
+        if (delay > 0) {
+            datasets.push({
+                label: 'S vyčkávací prodlevou ' + delay + ' ' + (delay === 1 ? 'rok' : delay < 5 ? 'roky' : 'let'),
                 data: dataWait,
                 borderColor: chartColors.red.solid,
                 backgroundColor: 'rgba(255, 76, 76, 0.1)',
@@ -299,19 +301,20 @@ export function initInvestmentStory() {
                 tension: 0.4,
                 pointRadius: 0,
                 pointHitRadius: 10,
-            },
-            {
-                label: 'Plná efektivita od dnes',
-                data: dataNow,
-                borderColor: chartColors.gold.solid,
-                backgroundColor: 'rgba(212, 175, 55, 0.15)',
-                borderWidth: 3,
-                fill: true,
-                tension: 0.4,
-                pointRadius: 0,
-                pointHitRadius: 10,
-            }
-        ];
+            });
+        }
+
+        datasets.push({
+            label: delay > 0 ? 'Start od dnes' : 'Vývoj vašeho majetku',
+            data: dataNow,
+            borderColor: chartColors.gold.solid,
+            backgroundColor: 'rgba(212, 175, 55, 0.15)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.4,
+            pointRadius: 0,
+            pointHitRadius: 10,
+        });
 
         if (investmentChartInstance) {
             investmentChartInstance.data.labels = labels;
@@ -367,6 +370,33 @@ export function initInvestmentStory() {
     });
 
     [tState].filter(Boolean).forEach(el => el.addEventListener('change', updateDashboard));
+
+    // Accordion toggle
+    document.querySelectorAll('.calc2-accordion-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const expanded = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', !expanded);
+            const body = trigger.nextElementSibling;
+            if (body) body.classList.toggle('calc2-accordion-body--open', !expanded);
+        });
+    });
+
+    // Touch support for hover tooltips
+    document.querySelectorAll('.calc2-tooltip-icon').forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Close all other open tooltips
+            document.querySelectorAll('.calc2-tooltip-icon--active').forEach(other => {
+                if (other !== icon) other.classList.remove('calc2-tooltip-icon--active');
+            });
+            icon.classList.toggle('calc2-tooltip-icon--active');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.calc2-tooltip-icon--active').forEach(el => {
+            el.classList.remove('calc2-tooltip-icon--active');
+        });
+    });
 
     updateDashboard();
 }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Průvodce hypotékami 2026 | Monerio Blog</title>
     <meta name="description"
@@ -12,7 +12,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Průvodce hypotékami 2026 | Monerio Blog" />
     <meta property="og:description" content="Jak na bydlení chytře a bez zbytečných chyb. Fixace, RPSN, refinancování, nájem vs. vlastní bydlení." />
-    <meta property="og:image" content="https://www.monerio.cz/logo.png" />
+    <meta property="og:image" content="https://www.monerio.cz/assets/logo.png" />
     <meta property="og:url" content="https://www.monerio.cz/pruvodce-hypotekami" />
     <meta property="og:locale" content="cs_CZ" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -29,7 +29,7 @@
       },
       "headline": "Průvodce hypotékami: Jak na bydlení chytře a bez zbytečných chyb",
       "description": "Jak na bydlení chytře a bez zbytečných chyb. Fixace, RPSN, refinancování, nájem vs. vlastní bydlení.",
-      "image": "https://www.monerio.cz/logo.png",
+      "image": "https://www.monerio.cz/assets/logo.png",
       "author": {
         "@type": "Organization",
         "name": "Monerio"
@@ -47,7 +47,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..500&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,300;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 
 <body data-barba="wrapper">
@@ -55,15 +55,15 @@
 
     <header class="navbar">
         <div class="container nav-content">
-            <a href="/" class="logo-link"><img src="/logo-inverse.svg" alt="Monerio Logo" class="nav-logo"></a>
+            <a href="/" class="logo-link"><img src="/assets/logo-inverse.svg" alt="Monerio Logo" class="nav-logo"></a>
             <nav class="nav-links d-none-mobile">
-                <a href="/sluzby.html">Služby</a>
-                <a href="/kalkulacky.html">Kalkulačky</a>
-                <a href="/o-nas.html">O nás</a>
-                <a href="/blog.html" class="active">Blog</a>
-                <a href="/kontakt.html">Kontakt</a>
+                <a href="/sluzby">Služby</a>
+                <a href="/kalkulacky/">Kalkulačky</a>
+                <a href="/o-nas">O nás</a>
+                <a href="/blog/" class="active">Blog</a>
+                <a href="/kontakt">Kontakt</a>
             </nav>
-            <a href="/kontakt.html" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
+            <a href="/kontakt" class="btn btn-primary nav-cta d-none-mobile">Konzultace</a>
             <button class="menu-toggle" id="mobile-menu-btn" aria-label="Otevřít menu">
                 <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -74,17 +74,17 @@
         </div>
     </header>
     <div class="mobile-menu" id="mobile-menu">
-        <a href="/sluzby.html" class="mobile-link">Služby</a>
-        <a href="/kalkulacky.html" class="mobile-link">Kalkulačky</a>
-        <a href="/o-nas.html" class="mobile-link">O nás</a>
-        <a href="/blog.html" class="mobile-link">Blog</a>
-        <a href="/kontakt.html" class="mobile-link">Kontakt</a>
+        <a href="/sluzby" class="mobile-link">Služby</a>
+        <a href="/kalkulacky/" class="mobile-link">Kalkulačky</a>
+        <a href="/o-nas" class="mobile-link">O nás</a>
+        <a href="/blog/" class="mobile-link">Blog</a>
+        <a href="/kontakt" class="mobile-link">Kontakt</a>
     </div>
 
     <main data-barba="container" data-barba-namespace="article">
     <section class="article-hero">
         <div class="container">
-            <a href="/blog.html" class="back-link">← Zpět na blog</a>
+            <a href="/blog/" class="back-link">← Zpět na blog</a>
             <span class="article-tag">Hypotéky &amp; Úvěry</span>
             <h1>Průvodce hypotékami: Jak na bydlení chytře a bez zbytečných chyb</h1>
             <p class="article-meta">Monerio tým · 12. února 2026 · 8 min čtení</p>
@@ -161,7 +161,7 @@
         <div class="article-cta">
             <h3>Potřebujete pomoc s financováním bydlení?</h3>
             <p>Porovnáme nabídky desítek bank a najdeme pro vás tu nejlepší sazbu na trhu. Konzultace zdarma.</p>
-            <a href="/kontakt.html" class="btn btn-primary">Nezávazná konzultace o hypotéce</a>
+            <a href="/kontakt" class="btn btn-primary">Nezávazná konzultace o hypotéce</a>
         </div>
 
         <div class="article-disclaimer">
@@ -176,17 +176,17 @@
     <div class="container fade-in-up">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
+          <img src="/assets/logo-inverse.svg" alt="Monerio Logo" class="footer-logo" loading="lazy">
           <p style="font-size:0.9rem;">Architekt vašich financí v České republice.</p>
         </div>
         <div class="footer-links">
           <h4>Navigace</h4>
           <ul>
-            <li><a href="/sluzby.html">Služby</a></li>
-            <li><a href="/kalkulacky.html">Kalkulačky</a></li>
-            <li><a href="/o-nas.html">O nás</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/kontakt.html">Kontakt</a></li>
+            <li><a href="/sluzby">Služby</a></li>
+            <li><a href="/kalkulacky/">Kalkulačky</a></li>
+            <li><a href="/o-nas">O nás</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/kontakt">Kontakt</a></li>
           </ul>
         </div>
         <div class="footer-links">
@@ -207,8 +207,8 @@
             style="color: rgba(255,255,255,0.5); text-decoration: underline;">Finančního arbitra ČR</a>.</p>
       </div>
       <div class="footer-bottom">
-        <a href="/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
-        <a href="/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád</a>
+        <a href="/documents/gdpr-finvox.pdf" target="_blank">Ochrana údajů (GDPR)</a>
+        <a href="/documents/reklamacni-rad-finvox.pdf" target="_blank">Reklamační řád</a>
         <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: right; width: 100%;">&copy; 2026 MONERIO</p>
       </div>
     </div>
@@ -226,7 +226,7 @@
     </div>
   </div>
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
 </body>
 
 </html>
